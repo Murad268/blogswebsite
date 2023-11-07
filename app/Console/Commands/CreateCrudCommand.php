@@ -21,6 +21,8 @@ class CreateCrudCommand extends Command
                     $this->call('make:controller', ['name' => "front\\$controllerName"]);
                     file_put_contents("resources/views/front/{$str[0]}.blade.php", "");
                     $this->info("Front directory and file named '$str[0]' were created.");
+                    $frontContents = "@extends('front.layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
+                    file_put_contents("resources/views/front/{$str[0]}.blade.php", $frontContents);
                 } else {
                     $this->info("Front directory named '$str[0]' already exists");
                 }
@@ -36,13 +38,13 @@ class CreateCrudCommand extends Command
                 $this->call('make:controller', ['name' => 'admin\\' . $controllerName, '--resource' => true]);
                 $this->info("Directory named '$entity' was created.");
 
-                $indexContents = "@extends('layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
+                $indexContents = "@extends('admin.layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
                 file_put_contents($viewDirectory . '/index.blade.php', $indexContents);
 
-                $editContents = "@extends('layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
+                $editContents = "@extends('admin.layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
                 file_put_contents($viewDirectory . '/edit.blade.php', $editContents);
 
-                $createContents = "@extends('layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
+                $createContents = "@extends('admin.layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
                 file_put_contents($viewDirectory . '/create.blade.php', $createContents);
             } else {
                 $this->info("A directory named '$entity' already exists");
