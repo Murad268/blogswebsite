@@ -21,6 +21,8 @@ class CreateCrudCommand extends Command
                     $this->call('make:controller', ['name' => "front\\$controllerName"]);
                     file_put_contents("resources/views/front/{$str[0]}.blade.php", "");
                     $this->info("Front directory and file named '$str[0]' were created.");
+                    $controllerContents = "<?php\n\nnamespace App\Http\Controllers\\front;\n\nuse Illuminate\Http\Request;\nuse App\Http\Controllers\Controller;\n\nclass $controllerName extends Controller\n{\n    public function index()\n    {\n        return view('front.{$str[0]}');\n    }\n}";
+                    file_put_contents(app_path("Http/Controllers/front/{$controllerName}.php"), $controllerContents);
                     $frontContents = "@extends('front.layout.app')\n@section('title', '')\n@section('content')\n\n@endsection";
                     file_put_contents("resources/views/front/{$str[0]}.blade.php", $frontContents);
                 } else {
