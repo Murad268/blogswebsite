@@ -15,18 +15,17 @@ class CreateCrudCommand extends Command
         $str = explode("_", $entity);
         if (count($str) > 1) {
             if ($str[1] == "front") {
-                $viewDirectory = resource_path("views/front/$entity");
+                $viewDirectory = resource_path("views/front/{$str[0]}");
                 if (!file_exists($viewDirectory)) {
-                    mkdir($viewDirectory, 0755, true);
-                    $controllerName = ucfirst($entity) . 'Controller';
-                    $this->call('make:controller', ['name' => 'front\\' . $controllerName]);
-                    touch($viewDirectory . '/' . $str[0] . '.blade.php');
-                    $this->info("Directory named '$entity' was created.");
+                    $controllerName = ucfirst($str[0]) . 'Controller';
+                    $this->call('make:controller', ['name' => "front\\$controllerName"]);
+                    file_put_contents("resources/views/front/{$str[0]}.blade.php", "");
+                    $this->info("Front directory and file named '$str[0]' were created.");
                 } else {
-                    $this->info("A directory named '$entity' already exists");
+                    $this->info("Front directory named '$str[0]' already exists");
                 }
             } else {
-                $this->info("command failed");
+                $this->info("Command failed");
             }
         } else {
             $viewDirectory = resource_path("views/admin/$entity");
