@@ -1,5 +1,4 @@
-
-@extends('front.layout.app')
+@extends('admin.layout.app')
 @section('title', '')
 @section('content')
 
