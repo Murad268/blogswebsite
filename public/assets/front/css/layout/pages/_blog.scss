@@ -1,0 +1,13 @@
+.blog {
+   padding-top: 40px;
+	h1 {
+		@include text('black', $font-family1, 36px, normal, 600, 40px);
+		max-width: 850px;
+		padding: 20px 0;
+	}
+	&__banner {
+		border-radius: 20px;
+      overflow: hidden;
+      margin-top: 32px;
+	}
+}

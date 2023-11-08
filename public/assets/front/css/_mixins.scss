@@ -1,0 +1,53 @@
+@mixin text(
+	$color,
+	$font-family,
+	$font-size,
+	$font-style,
+	$font-weight,
+	$line-height
+) {
+	color: $color;
+	font-family: $font-family;
+	font-size: $font-size;
+	font-style: $font-style;
+	font-weight: $font-weight;
+	line-height: $line-height;
+}
+
+@mixin flex(
+	$align-items: null,
+	$justify-content: null,
+	$gap: null,
+	$direction: null
+) {
+	display: flex;
+	@if $align-items != null {
+		align-items: $align-items;
+	}
+	@if $justify-content != null {
+		justify-content: $justify-content;
+	}
+
+	@if $gap != null {
+		gap: $gap;
+	}
+
+	@if $direction != null {
+		flex-direction: $direction;
+	}
+}
+
+@mixin block($h: null, $w: null, $br: null, $bg: null) {
+	@if $w != null {
+		width: $w;
+	}
+	@if $h != null {
+		height: $h;
+	}
+	@if $br != null {
+		border-radius: $br;
+	}
+	@if $bg != null {
+		background: $bg;
+	}
+}

@@ -1,0 +1,113 @@
+.footer {
+	padding: 64px 0 0 0;
+	background: $textColor7;
+	margin-top: 50px;
+	hr {
+		margin: 40px 0 20px 0;
+	}
+	&__contacts {
+		@include flex(null, space-between, 4px, column);
+		margin-top: 24px;
+		strong {
+			@include text($textColor2, $font-family1, 14px, normal, 600, 28px);
+		}
+		span {
+			@include text($textColor4, $font-family1, 14px, normal, 600, 28px);
+		}
+	}
+	&__top {
+		div:nth-child(1) {
+			max-width: 288px;
+		}
+		flex-wrap: wrap;
+		row-gap: 50px;
+		@include flex(null, space-between, null, row);
+		.newsletter {
+			@include block(null, 392px, 12px, $bgColor);
+			text-align: center;
+			padding: 32px;
+			h5 {
+				@include text($textColor2, $font-family1, 20px, normal, 600, 24px);
+				margin-bottom: 8px;
+			}
+			&__input {
+				width: 100%;
+				height: 40px;
+				position: relative;
+				margin: 30px 0;
+				svg {
+					position: absolute;
+					top: 50%;
+					transform: translateY(-50%);
+					right: 15px;
+				}
+				border: none;
+				input {
+					padding-left: 16px;
+					&:focus {
+						outline: none;
+					}
+				}
+			}
+			button {
+				@include block(40px, 100%, 6px, $blueColor);
+				border: none;
+				@include text($bgColor, $font-family1, 16px, normal, 500, 24px);
+			}
+		}
+		h4 {
+			@include text($textColor2, $font-family1, 18px, normal, 600, 28px);
+			margin-bottom: 24px;
+		}
+		p {
+			@include text($textColor5, $font-family1, 16px, normal, 400, 24px);
+		}
+
+		ul {
+			@include flex(null, space-between, 8px, column);
+
+			li {
+				a {
+					@include text($textColor5, $font-family1, 16px, normal, 400, 24px);
+				}
+			}
+		}
+	}
+
+	&__bottom {
+		@include flex(center, space-between, null row);
+		@media (max-width: 830px) {
+			flex-direction: column;
+		}
+		&__left {
+			@include flex(center, space-between, 5px, row);
+			@media (max-width: 396px) {
+				flex-direction: column;
+			}
+			&__img {
+				@include block(48px, 48px, 100%, null);
+			}
+			p {
+				@include text($textColor4, $font-family1, 16px, normal, 400, 24px);
+			}
+			.title {
+				span {
+					@include text($textColor4, $font-family1, 16px, normal, 400, 24px);
+				}
+				strong {
+					@include text($textColor2, $font-family1, 16px, normal, 800, 24px);
+				}
+			}
+		}
+		&__right {
+			padding: 32px 0;
+			ul {
+				flex-wrap: wrap;
+				@include flex(center, space-between, 16px, row);
+				a {
+					@include text($textColor4, $font-family1, 16px, normal, 400, 24px);
+				}
+			}
+		}
+	}
+}

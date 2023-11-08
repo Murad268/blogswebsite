@@ -1,0 +1,27 @@
+.write {
+	&__blog {
+		@include text($textColor2, $font-family1, 34px, normal, 600, 38px);
+		margin: 10px 0;
+	}
+	.input {
+		max-width: 400px;
+		height: 30px;
+		input {
+			padding-left: 10px;
+		}
+		margin-bottom: 10px;
+	}
+	form {
+		max-width: 800px;
+	}
+	&__form {
+		@include flex(center, center, null, null);
+		display: grid;
+		gap: 60px;
+		grid-template-columns: repeat(2, 1fr);
+		@media (max-width: 676px) {
+			grid-template-columns: 100%;
+         gap: 10px;
+		}
+	}
+}

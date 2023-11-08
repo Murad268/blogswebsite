@@ -1,0 +1,36 @@
+.posts {
+    padding-top: 70px;
+
+    &__wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 50px;
+        @media (max-width: 380px) {
+            grid-template-columns: 100%;
+        }
+        .post {
+            .category {
+                margin: 10px 0 !important;
+            }
+            .header__body__footer {
+                padding: 15px 0;
+            }
+
+            &__img {
+                height: 240px;
+                border-radius: 6px;
+                overflow: hidden;
+            }
+            h2 {
+                @include text(
+                    $textColor2,
+                    $font-family1,
+                    24px,
+                    normal,
+                    600,
+                    28px
+                );
+            }
+        }
+    }
+}

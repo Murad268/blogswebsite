@@ -1,0 +1,24 @@
+.img {
+	width: 20px;
+	height: 20px;
+}
+
+.follower {
+	@include flex(center, null, 10px, row);
+	@include text($textColor2, $font-family1, 19px, normal, 500, 20px);
+	padding: 10px;
+	border: 1px solid;
+   a {
+      
+   }
+}
+.followers {
+	width: max-content;
+	margin: 0 auto;
+	@include flex(flex-start, null, 10px, column);
+}
+
+.followers-md {
+	height: 400px;
+	overflow-y: scroll;
+}
