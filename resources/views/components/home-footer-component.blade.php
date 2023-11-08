@@ -56,9 +56,12 @@
         <div class="footer__bottom">
             <div class="footer__bottom__left">
                 <div class="footer__bottom__left__img">
-                    <img src="./assets/icons/Logo (1)f.svg" alt="" />
+                    <img src="{{asset('assets/front/icons/Logo (1)f.svg')}}" alt="" />
                 </div>
-
+                <div>
+                    <div class="title"><span>Meta</span> <strong>Blog</strong></div>
+                    <p>© JS Template 2023. All Rights Reserved.</p>
+                </div>
             </div>
             <div class="footer__bottom__right">
                 <ul>
@@ -68,5 +71,6 @@
                 </ul>
             </div>
         </div>
+
     </div>
 </footer>

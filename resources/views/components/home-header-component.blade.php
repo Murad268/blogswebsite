@@ -14,7 +14,13 @@
                               <li><a href="">Blogs</a></li>
                               <li><a href="{{route('front.write')}}">Write a blog</a></li>
                               <li><a href="{{route('front.contact')}}">Contact</a></li>
-                              <li><a href="{{route('front.login')}}">Log in</a></li>
+                              @guest
+                              <li><a href="{{route('front.user.login')}}">Log in</a></li>
+                              @endguest
+                              @auth
+                              <li><a href="{{route('front.user')}}">Account</a></li>
+                              <li><a id="exit-button" href="{{route('front.user.login')}}">Exit</a></li>
+                              @endauth
                               <li class="language">
                                   <a href="">az</a>
                                   <a href="">rus</a>

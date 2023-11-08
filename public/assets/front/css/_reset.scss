@@ -25,7 +25,10 @@ img {
 	height: 100%;
 	object-fit: cover;
 }
-
+p {
+    margin: 0;
+    padding: 0;
+}
 .front_container {
 	max-width: 1340px !important;
 	margin: 0 auto !important;
@@ -70,3 +73,6 @@ img {
 		font-weight: bold;
 	}
 }
+
+
+

@@ -20,14 +20,19 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => '', 'as' => 'front.'], function () {
-    Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(['prefix' => 'user', 'as' => 'front.user.'], function () {
     Route::get('/login', [LoginController::class, 'index'])->name('login');
+    Route::post('/login_check', [LoginController::class, 'login_check'])->name('login_check');
+    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+    Route::get('/register', [ResgisterController::class, 'index'])->name('register');
+    Route::post('/register_add', [ResgisterController::class, 'register_add'])->name('register_add');
+});
+
+Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
-    Route::get('/register', [ResgisterController::class, 'index'])->name('register');
     Route::get('/user', [USERController::class, 'index'])->name('user');
     Route::get('/write', [WriteController::class, 'index'])->name('write');
-
-
 });
