@@ -1,5 +1,5 @@
 @extends('front.layout.app')
-@section('title', '')
+@section('title', 'home')
 @section('headbody')
 <div class="header__body">
     <div class="front_container">

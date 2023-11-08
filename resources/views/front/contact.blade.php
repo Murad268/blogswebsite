@@ -1,5 +1,5 @@
 @extends('front.layout.app')
-@section('title', '')
+@section('title', 'contact')
 @section('content')
 <main class="contact">
     <div class="container">

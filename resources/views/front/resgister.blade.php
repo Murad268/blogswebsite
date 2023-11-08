@@ -1,5 +1,5 @@
 @extends('front.layout.app')
-@section('title', '')
+@section('title', 'register')
 @section('content')
 <main>
     <section class="vh-100">

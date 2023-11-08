@@ -1,5 +1,5 @@
 @extends('front.layout.app')
-@section('title', '')
+@section('title', 'account')
 @section('content')
 <main class="user">
     <section style="background-color: #eee">

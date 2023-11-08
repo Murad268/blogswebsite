@@ -1,5 +1,5 @@
 @extends('front.layout.app')
-@section('title', '')
+@section('title', 'write a new blogs')
 @section('content')
 
 <main class="write">
