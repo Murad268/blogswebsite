@@ -52,7 +52,7 @@
                                         <div class="mx-4 mb-3 mb-lg-4">
 
                                             <button type="button" class="btn btn-primary btn-lg">
-                                                Register
+                                                Registerr
                                             </button>
                                             <p class="small fw-bold mt-2 pt-1 mb-0">
                                                 Have an account?
