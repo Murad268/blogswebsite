@@ -44,11 +44,33 @@ function exitAccount() {
         });
 }
 
+// ClassicEditor.create(document.querySelector("#editor"), {
+//     readOnly: true,
+// }).catch((error) => {
+//     console.error(error);
+// });
 
+async function likeBlog(url) {
+    const res = await fetch(url);
+    return await res.text();
+}
 
+const like = document.querySelector(".like");
+if (like) {
+    const likes_count = document.querySelector(".likes_count");
 
-ClassicEditor.create(document.querySelector("#editor"), {
-    readOnly: true,
-}).catch((error) => {
-    console.error(error);
-});
+    like.addEventListener("click", (e) => {
+        let id = e.target.getAttribute("data-id");
+        if (e.target.classList.contains("fa-regular")) {
+            e.target.classList.remove("fa-regular");
+            e.target.classList.add("fa");
+            likes_count.innerHTML = +likes_count.innerHTML + 1;
+            likeBlog("http://127.0.0.1:8000/blog/like/" + id);
+        } else {
+            e.target.classList.remove("fa");
+            e.target.classList.add("fa-regular");
+            likes_count.innerHTML = +likes_count.innerHTML - 1;
+            likeBlog("http://127.0.0.1:8000/blog/dislike/" + id);
+        }
+    });
+}

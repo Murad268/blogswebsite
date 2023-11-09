@@ -66,4 +66,23 @@ class DataService
             dd($e->getMessage());
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function simple_delete($model, $route)
+    {
+        $deleted = $model->delete();
+        if ($deleted) {
+            return redirect()->route($route);
+        }
+    }
 }
