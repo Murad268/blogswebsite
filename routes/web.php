@@ -71,4 +71,6 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
 
     Route::post('/mail', [MailController::class, 'send'])->name('mail');
+    Route::post('/weekly', [MailController::class, 'weekly'])->name('weekly');
+
 });
