@@ -10,10 +10,10 @@ class MailService
     {
     }
 
-    public function sendMail($datas, $subject, $email)
+    public function sendMail($page, $datas, $subject, $email)
     {
         Mail::send(
-            'front.mail',
+            $page,
             $datas,
             function ($message) use ($subject, $email) {
                 $message->to($email)->subject($subject);

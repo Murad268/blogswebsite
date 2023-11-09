@@ -1,1 +1,1 @@
-{{$blog}} başlıqlı blogunuza {{$name}} adlı istifadəçi şərh yazdı;
+{{$blog}} başlıqlı blogunuza {{$name}} adlı istifadəçi şərh yazdı

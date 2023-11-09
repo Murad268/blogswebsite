@@ -81,7 +81,7 @@ class BlogController extends Controller
 
         if ($this->DataService->simple_create(new Comments(), $newRequest)) {
             if (auth()->user()->email != $email) {
-                $this->mailService->sendMail([
+                $this->mailService->sendMail('front.mail',[
                     'blog' => $blog->title,
                     'name' => $name
                 ], "comment added", $email);

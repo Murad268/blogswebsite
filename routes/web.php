@@ -7,6 +7,7 @@ use App\Http\Controllers\front\LoginController;
 use App\Http\Controllers\front\ResgisterController;
 use App\Http\Controllers\front\USERController;
 use App\Http\Controllers\front\WriteController;
+use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -66,4 +67,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
     Route::get('/write', [WriteController::class, 'index'])->name('write');
     Route::post('/write_block', [WriteController::class, 'write_block'])->name('write_block');
+
+
+
+    Route::post('/mail', [MailController::class, 'send'])->name('mail');
 });

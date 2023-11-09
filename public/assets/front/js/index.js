@@ -49,7 +49,7 @@ function deleteComment(e) {
         .getElementById("delete-button")
         .addEventListener("click", function (e) {
             e.preventDefault();
-            let id = e.target.getAttribute("data-id")
+            let id = e.target.getAttribute("data-id");
             Swal.fire({
                 title: "Komment silmək istədiyinizdən əminsinizmi?",
                 text: "Bu addımın geri dönüşü yoxdur",
@@ -66,13 +66,13 @@ function deleteComment(e) {
         });
 }
 
-
-
-// ClassicEditor.create(document.querySelector("#editor"), {
-//     readOnly: true,
-// }).catch((error) => {
-//     console.error(error);
-// });
+if (document.querySelector("#editor")) {
+    ClassicEditor.create(document.querySelector("#editor"), {
+        readOnly: true,
+    }).catch((error) => {
+        console.error(error);
+    });
+}
 
 async function likeBlog(url) {
     const res = await fetch(url);
@@ -81,8 +81,9 @@ async function likeBlog(url) {
 
 const like = document.querySelector(".like");
 const comments = document.querySelector(".comments");
-const blog_id = comments.getAttribute("data-id");
-if (like) {
+
+if (like && comments) {
+    const blog_id = comments.getAttribute("data-id");
     const likes_count = document.querySelector(".likes_count");
 
     like.addEventListener("click", (e) => {
@@ -100,9 +101,3 @@ if (like) {
         }
     });
 }
-
-
-
-
-
-
