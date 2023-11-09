@@ -9,9 +9,10 @@ use App\Models\Categories;
 
 class BlogController extends Controller
 {
-    public function index()
+    public function index($slug)
     {
-        return view('front.blog');
+        $blog = Blog::where('slug',$slug)->first();
+        return view('front.blog', compact('blog'));
     }
 
 

@@ -34,6 +34,8 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+    Route::get('/blog/{slug}', [BlogController::class, 'index'])->name('blog');
+
 
     Route::get('/blogs/{slug?}', [BlogController::class, 'blogs'])->name('blogs');
 

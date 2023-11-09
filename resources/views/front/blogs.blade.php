@@ -11,7 +11,7 @@
             </form>
             <div class="posts__wrapper">
                 @foreach($blogs as $blog)
-                <div class="post">
+                <a href="{{route('front.blog', $blog->slug)}}" class="post">
                     <div class="post__img">
                         <img src="{{ url('storage/' . $blog->image) }}" alt="" />
                     </div>
@@ -28,7 +28,7 @@
                         </div>
                         <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>
                     </div>
-                </div>
+                </a>
                 @endforeach
             </div>
         </div>
