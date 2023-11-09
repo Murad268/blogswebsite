@@ -4,14 +4,10 @@
 <main>
     <section class="posts">
         <div class="front_container">
-            <form style="display: flex; align-items: center;column-gap: 5px" action="">
-                <select style="max-width: 300px; " class="form-select mb-3" aria-label="Default select example">
-                    <option selected>filter by category</option>
-                    @foreach($cetegories as $category)
-                    <option value="{{$category->id}}" >{{$category->title}}</option>
-                    @endforeach
-                </select>
-                <button class="btn btn-success mb-3">axtar</button>
+            <form style="display: flex; align-items: center;column-gap: 5px" action="{{route('front.blogs')}}">
+                @foreach($cetegories as $category)
+                <a style="background-color: #7085F7; color: white" class="mb-3 btn" href="{{route('front.blogs', $category->slug)}}">{{$category->title}}</a>
+                @endforeach
             </form>
             <div class="posts__wrapper">
                 @foreach($blogs as $blog)

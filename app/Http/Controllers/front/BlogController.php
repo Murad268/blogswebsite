@@ -15,8 +15,13 @@ class BlogController extends Controller
     }
 
 
-    public function blogs() {
-        $blogs = Blog::orderByDesc('created_at')->paginate(3);
+    public function blogs($slug = null) {
+        if(!$slug) {
+            $blogs = Blog::orderByDesc('created_at')->paginate(2);
+        } else {
+            $foundCategory = Categories::where('slug', $slug)->first();
+            $blogs = Blog::where('category_id', $foundCategory->id)->paginate(2);
+        }
         $cetegories = Categories::all();
         return view('front.blogs', compact('blogs', 'cetegories'));
     }
