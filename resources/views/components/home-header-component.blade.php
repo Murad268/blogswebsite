@@ -11,7 +11,7 @@
                       <div class="navbar__links">
                           <ul>
                               <li><a href="{{route('front.home')}}">Home</a></li>
-                              <li><a href="">Blogs</a></li>
+                              <li><a href="{{route('front.blogs')}}">Blogs</a></li>
                               <li><a href="{{route('front.write')}}">Write a blog</a></li>
                               <li><a href="{{route('front.contact')}}">Contact</a></li>
                               @guest

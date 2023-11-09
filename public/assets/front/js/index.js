@@ -43,3 +43,12 @@ function exitAccount() {
             });
         });
 }
+
+
+
+
+ClassicEditor.create(document.querySelector("#editor"), {
+    readOnly: true,
+}).catch((error) => {
+    console.error(error);
+});

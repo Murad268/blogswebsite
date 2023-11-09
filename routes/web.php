@@ -31,8 +31,24 @@ Route::group(['prefix' => 'user', 'as' => 'front.user.'], function () {
 
 Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+
+
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+
+    Route::get('/blogs', [BlogController::class, 'blogs'])->name('blogs');
+
+
     Route::get('/contact', [ContactController::class, 'index'])->name('contact');
     Route::get('/user', [USERController::class, 'index'])->name('user');
+    Route::get('/edit_user', [USERController::class, 'edit_user'])->name('edit_user');
+    Route::post('/update_user', [USERController::class, 'update_user'])->name('update_user');
+    Route::get('/edit_pass', [USERController::class, 'edit_pass'])->name('edit_pass');
+    Route::post('/update_pass', [USERController::class, 'update_pass'])->name('update_pass');
+
+
+
+
     Route::get('/write', [WriteController::class, 'index'])->name('write');
+    Route::post('/write_block', [WriteController::class, 'write_block'])->name('write_block');
+
 });

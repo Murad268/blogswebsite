@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\front;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Blog as ModelsBlog;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('front.home');
+        $blogs = ModelsBlog::with('user')->orderBy('created_at', 'desc')->take(10)->get();
+        return view('front.home', compact('blogs'));
     }
 }
