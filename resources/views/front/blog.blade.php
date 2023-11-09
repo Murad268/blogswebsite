@@ -1,4 +1,5 @@
 @extends('front.layout.app')
+
 @section('title', $blog->title)
 @section('content')
 <main class="blog">
