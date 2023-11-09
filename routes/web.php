@@ -45,7 +45,7 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
 
 
-
+    Route::get('/blogs/search', [BlogController::class, 'search'])->name('search');
 
 
 

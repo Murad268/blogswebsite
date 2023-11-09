@@ -81,7 +81,7 @@ class BlogController extends Controller
 
         if ($this->DataService->simple_create(new Comments(), $newRequest)) {
             if (auth()->user()->email != $email) {
-                $this->mailService->sendMail('front.mail',[
+                $this->mailService->sendMail('front.mail', [
                     'blog' => $blog->title,
                     'name' => $name
                 ], "comment added", $email);
@@ -100,5 +100,16 @@ class BlogController extends Controller
         if ($this->DataService->simple_delete($comment)) {
             return redirect()->route('front.blog', $blog->slug);
         };
+    }
+
+
+
+
+    public function search(Request $request)
+    {
+        $q = $request->q;
+
+        $blogs = Blog::where('title', 'like', "%$q%")->paginate(10);
+        return view('front.search', compact('blogs'));
     }
 }
