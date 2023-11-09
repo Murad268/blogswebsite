@@ -12,30 +12,29 @@ class DataService
     }
 
 
-    public function simple_create($model, $request, $route)
+    public function simple_create($model, $request)
     {
 
         $created = $model->create($request->all());
         if ($created) {
-            return redirect()->route($route);
+            return true;
         } else {
-            dd('error');
+            return false;;
         }
     }
-    public function simple_update($model, $request, $route)
+    public function simple_update($model, $request)
     {
         $updated = $model->update($request->all());
 
-
         if ($updated) {
-            return redirect()->route($route);
+            return true;
         } else {
-            dd('error');
+            return false;;
         }
     }
 
 
-    public function simple_create_withImage($model, $request, $field, $dir, $route)
+    public function simple_create_withImage($model, $request, $field, $dir)
     {
         try {
             $data = $request->all();
@@ -44,7 +43,7 @@ class DataService
                 $data[$key] = $img;
             }
             $newRequest = new \Illuminate\Http\Request($data);
-            return $this->simple_create($model, $newRequest, $route);
+            return $this->simple_create($model, $newRequest);
         } catch (Exception $e) {
             dd($e->getMessage());
         }
@@ -52,7 +51,7 @@ class DataService
 
 
 
-    public function simple_update_withImage($model, $request, $field, $dir, $route)
+    public function simple_update_withImage($model, $request, $field, $dir)
     {
         try {
             $data = $request->all();
@@ -61,7 +60,7 @@ class DataService
                 $data[$key] = $img;
             }
             $newRequest = new \Illuminate\Http\Request($data);
-            return $this->simple_update($model, $newRequest, $route);
+            return $this->simple_update($model, $newRequest);
         } catch (Exception $e) {
             dd($e->getMessage());
         }
@@ -78,11 +77,13 @@ class DataService
 
 
 
-    public function simple_delete($model, $route)
+    public function simple_delete($model)
     {
         $deleted = $model->delete();
         if ($deleted) {
-            return redirect()->route($route);
+            return true;
+        } else {
+            return false;;
         }
     }
 }

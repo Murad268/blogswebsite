@@ -38,11 +38,35 @@ function exitAccount() {
                 confirmButtonText: "Bəli, çıx!",
             }).then((result) => {
                 if (result.isConfirmed) {
-                    window.location.href = "user/logout";
+                    window.location.href = "/user/logout";
                 }
             });
         });
 }
+
+function deleteComment(e) {
+    document
+        .getElementById("delete-button")
+        .addEventListener("click", function (e) {
+            e.preventDefault();
+            let id = e.target.getAttribute("data-id")
+            Swal.fire({
+                title: "Komment silmək istədiyinizdən əminsinizmi?",
+                text: "Bu addımın geri dönüşü yoxdur",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Bəli, sil!",
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "/blog/comment_delete/" + id;
+                }
+            });
+        });
+}
+
+
 
 // ClassicEditor.create(document.querySelector("#editor"), {
 //     readOnly: true,
@@ -56,6 +80,8 @@ async function likeBlog(url) {
 }
 
 const like = document.querySelector(".like");
+const comments = document.querySelector(".comments");
+const blog_id = comments.getAttribute("data-id");
 if (like) {
     const likes_count = document.querySelector(".likes_count");
 
@@ -74,3 +100,9 @@ if (like) {
         }
     });
 }
+
+
+
+
+
+

@@ -30,7 +30,9 @@ class USERController extends Controller
         $user_id = auth()->user()->id;
         $model = User::findOrFail($user_id);
         $images = ['avatar' => $request->avatar];
-        return $this->DataService->simple_update_withImage($model, $request, $images, 'users', 'front.user');
+        if($this->DataService->simple_update_withImage($model, $request, $images, 'users')){
+            return redirect()->route('front.user');
+        };
     }
 
 
@@ -43,6 +45,8 @@ class USERController extends Controller
     {
         $user = User::findOrFail(auth()->user()->id);
         Auth::logout();
-        return $this->DataService->simple_update($user, $request, 'front.user');
+        if($this->DataService->simple_update($user, $request)){
+            return redirect()->route('front.user');
+        };
     }
 }

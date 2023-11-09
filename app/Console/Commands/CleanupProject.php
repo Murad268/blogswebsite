@@ -21,10 +21,10 @@ class CleanupProject extends Command
 
         $this->call('cache:clear');
         $this->call('view:clear');
-        $this->call('clear-compiled');
-        $this->call('event:clear');
-        $this->call('migrate:reset');
-        $this->call('db:seed');
+        // $this->call('clear-compiled');
+        // $this->call('event:clear');
+        // $this->call('migrate:reset');
+        // $this->call('db:seed');
 
         $this->info('Proje temizlendi!');
     }

@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
     Route::get('/blog/like/{id}', [BlogController::class, 'like'])->name('like');
     Route::get('/blog/dislike/{id}', [BlogController::class, 'dislike'])->name('dislike');
 
+    Route::post('/blog/comment/{id}', [BlogController::class, 'comment'])->name('comment');
+    Route::get('/blog/comment_delete/{id}', [BlogController::class, 'comment_delete'])->name('comment_delete');
+
+
+
 
 
 
@@ -61,5 +66,4 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
     Route::get('/write', [WriteController::class, 'index'])->name('write');
     Route::post('/write_block', [WriteController::class, 'write_block'])->name('write_block');
-
 });

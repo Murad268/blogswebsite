@@ -4,20 +4,25 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\comments\AddCommentRequest;
 use App\Models\Blog;
 use App\Models\Categories;
+use App\Models\Comments;
 use App\Models\Likes;
 use App\Services\DataService;
+use App\Services\MailService;
+use Egulias\EmailValidator\Parser\Comment;
+use Illuminate\Support\Facades\Mail;
 
 class BlogController extends Controller
 {
-    public function __construct(private DataService $DataService)
+    public function __construct(private DataService $DataService, private MailService $mailService)
     {
     }
     public function index($slug)
     {
         $blog = Blog::where('slug', $slug)->first();
-
+        $comments = Comments::where('blog_id', $blog->id)->paginate(5);
         if ($blog) {
             try {
                 $isLike = Likes::where('user_id', auth()->user()->id)->where("blog_id", $blog->id)->exists();
@@ -26,7 +31,7 @@ class BlogController extends Controller
             }
 
             $count = Likes::where("blog_id", $blog->id)->count();
-            return view('front.blog', compact('blog', 'isLike', 'count'));
+            return view('front.blog', compact('blog', 'isLike', 'count', 'comments'));
         } else {
             return redirect()->route('404');
         }
@@ -36,6 +41,7 @@ class BlogController extends Controller
 
     public function blogs($slug = null)
     {
+
         if (!$slug) {
             $blogs = Blog::orderByDesc('created_at')->paginate(2);
         } else {
@@ -52,13 +58,47 @@ class BlogController extends Controller
         $data = ['user_id' => auth()->user()->id, 'blog_id' => $id];
         $newRequest = new \Illuminate\Http\Request($data);
         // return response($id);
-        return $this->DataService->simple_create(new Likes(), $newRequest, 'front.user');
+        $this->DataService->simple_create(new Likes(), $newRequest);
     }
 
 
     public function dislike($id)
     {
         $like = Likes::where('user_id', auth()->user()->id)->where("blog_id", $id)->first();
-        return $this->DataService->simple_delete($like, 'front.user');
+        $this->DataService->simple_delete($like);
+    }
+
+
+    public function comment(AddCommentRequest $request, $id)
+    {
+
+        $blog = Blog::find($id);
+        $email = $blog->user->email;
+        $name = $blog->user->name;
+
+        $data = ['user_id' => auth()->user()->id, 'comment' => $request->comment, 'blog_id' => $id];
+        $newRequest = new \Illuminate\Http\Request($data);
+
+        if ($this->DataService->simple_create(new Comments(), $newRequest)) {
+            if (auth()->user()->email != $email) {
+                $this->mailService->sendMail([
+                    'blog' => $blog->title,
+                    'name' => $name
+                ], "comment added", $email);
+            }
+            return redirect()->route('front.blog', $blog->slug);
+        } else {
+            return false;;
+        }
+    }
+
+
+    public function comment_delete($id)
+    {
+        $comment = Comments::find($id);
+        $blog = Blog::find($comment->blog_id);
+        if ($this->DataService->simple_delete($comment)) {
+            return redirect()->route('front.blog', $blog->slug);
+        };
     }
 }

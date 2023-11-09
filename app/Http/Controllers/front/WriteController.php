@@ -27,6 +27,8 @@ class WriteController extends Controller
         $user_id = auth()->user()->id;
         $images = ['image' => $request->image, 'banner' => $request->banner];
         $customRequest = $request->merge(['user_id' => $user_id]);
-        return $this->DataService->simple_create_withImage(new Blog(), $customRequest, $images, 'blogs', 'front.user');
+        if($this->DataService->simple_create_withImage(new Blog(), $customRequest, $images, 'blogs')){
+            return redirect()->route('front.blogs');
+        };
     }
 }

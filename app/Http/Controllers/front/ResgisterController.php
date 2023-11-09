@@ -20,6 +20,8 @@ class ResgisterController extends Controller
 
     public function register_add(RegisterRequest $request)
     {
-        return $this->DataService->simple_create(new User, $request, 'front.user.login');
+        if ($this->DataService->simple_create(new User, $request)) {
+            return redirect()->route('front.user.login');
+        };
     }
 }

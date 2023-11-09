@@ -19,7 +19,7 @@
                               @endguest
                               @auth
                               <li><a href="{{route('front.user')}}">Account</a></li>
-                              <li><a id="exit-button" href="{{route('front.user.login')}}">Exit</a></li>
+                              <li><a id="exit-button" href="{{route('front.user.logout')}}">Exit</a></li>
                               @endauth
                               <li class="language">
                                   <a href="">az</a>
