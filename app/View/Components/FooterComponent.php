@@ -2,11 +2,12 @@
 
 namespace App\View\Components;
 
+use App\Models\Categories;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class home-header-component extends Component
+class FooterComponent extends Component
 {
     /**
      * Create a new component instance.
@@ -21,6 +22,7 @@ class home-header-component extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.home-header-component');
+        $categories = Categories::all();
+        return view('components.footer-component', compact('categories'));
     }
 }

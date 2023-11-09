@@ -31,12 +31,9 @@
             <div>
                 <h4>Category</h4>
                 <ul>
-                    <li><a href="">Lifestyle</a></li>
-                    <li><a href="">Technology</a></li>
-                    <li><a href="">Travel</a></li>
-                    <li><a href="">Business</a></li>
-                    <li><a href="">Economy</a></li>
-                    <li><a href="">Sports</a></li>
+                    @foreach($categories as $category)
+                    <li><a href="{{route('front.blogs', $category->slug)}}">{{$category->title}}</a></li>
+                    @endforeach
                 </ul>
             </div>
             <form class="newsletter">

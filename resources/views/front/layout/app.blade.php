@@ -4,11 +4,11 @@
 @include('front.layout.includes.head')
 
 <body>
-    <x-home-header-component />
+    <x-header-component />
 
     @yield('content')
 
-    <x-home-footer-component />
+    <x-footer-component />
     @include('front.layout.includes.foot')
 
 </body>
