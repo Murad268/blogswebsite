@@ -14,8 +14,8 @@
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
                             @endif
                             <h5 class="my-3">{{$user->name}}</h5>
-                            <p class="text-muted mb-1">{{ $user->position ? $user->position : 'Your work: empty' }}</p>
-                            <p class="text-muted mb-4">{{ $user->address ? $user->address : 'Your work: empty' }}</p>
+                            <p class="text-muted mb-1">{{ auth()->check() && auth()->user()->position ? auth()->user()->position : __('translations.user_position'). ': '. __('translations.empty') }}</p>
+                            <p class="text-muted mb-4">{{ auth()->check() && auth()->user()->address ? auth()->user()->address :  __('translations.user_address'). ': '. __('translations.empty') }}</p>
                             @if($isFollower)
                             <a style="cursor:pointer" data-id="{{$user->id}}" class="follow btn btn-success">unfollow</a>
                             @else

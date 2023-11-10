@@ -12,7 +12,7 @@
                     @csrf
                     <div class="form-group mb-3">
                         <label for="exampleInputEmail1" class="mb-2">{{__('translations.enter_your_blog_title')}}</label>
-                        <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('translations.enter_your_blog_title')}}" />
+                        <input name="title" type="text" value="{{old('title')}}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="{{__('translations.enter_your_blog_title')}}" />
                         @error('title')
                         <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
                             {{$message}}
@@ -24,12 +24,20 @@
                         <label for="formFile" class="form-label mb-2">{{__('translations.blog_image')}}</label>
                         <input name="image" class="form-control" type="file" id="formFile" />
                     </div>
-
+                    @error('image')
+                    <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
+                        {{$message}}
+                    </div>
+                    @enderror
                     <div class="mb-3">
                         <label for="formFile" class="form-label mb-2">{{__('translations.blog_banner_photo')}}</label>
                         <input name="banner" class="form-control" type="file" id="formFile" />
                     </div>
-
+                    @error('banner')
+                    <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
+                        {{$message}}
+                    </div>
+                    @enderror
                     <label for="formFile" class="form-label mb-2">{{__('translations.select_blog_category')}}</label>
                     <select name="category_id" class="form-select mb-3" aria-label="Default select example">
                         @foreach($categories as $category)
@@ -43,7 +51,7 @@
                     @enderror
                     <div class="mb-3">
                         <label for="formFile" class="form-label mb-2">{{__('translations.input_your_blog')}}</label>
-                        <textarea id="editor" name="desc"></textarea>
+                        <textarea id="editor" name="desc">{{old('desc')}}</textarea>
                         @error('desc')
                         <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
                             {{$message}}

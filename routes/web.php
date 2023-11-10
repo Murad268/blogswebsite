@@ -13,6 +13,7 @@ use App\Http\Controllers\front\UserPageController;
 use App\Http\Controllers\front\WriteController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,7 +35,7 @@ Route::group(['prefix' => 'user', 'as' => 'front.user.'], function () {
     Route::post('/register_add', [ResgisterController::class, 'register_add'])->name('register_add');
 });
 
-Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], function () {
+Route::group(['middleware' => 'auth', 'prefix' => LaravelLocalization::setLocale(), 'as' => 'front.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/terms_of_use', [TermsController::class, 'index'])->name('terms_of_use');
     Route::get('/privacy_policy', [PrivacyController::class, 'index'])->name('privacy_policy');

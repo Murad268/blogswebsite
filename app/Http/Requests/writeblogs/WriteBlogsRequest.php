@@ -15,6 +15,8 @@ class WriteBlogsRequest extends FormRequest
             'title' => ['required', 'min:70', 'max:120'],
             'category_id' => ['required'],
             'desc' => ['required'],
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            'banner' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048'
         ];
     }
 

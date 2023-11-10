@@ -22,10 +22,15 @@
                               <li><a id="exit-button" href="{{route('front.user.logout')}}">{{__('nav-links.exit')}}</a></li>
                               @endauth
                               <li class="language">
-                                  <a href="">az</a>
-                                  <a href="">rus</a>
-                                  <a href="">en</a>
+                                  @foreach(LaravelLocalization::getSupportedLocales() as $localeKey => $properties)
+                                  <a href="{{ LaravelLocalization::getLocalizedURL($localeKey) }}">
+                                      {{ $localeKey }}
+                                  </a>
+                                  @endforeach
+
+
                               </li>
+
                           </ul>
                       </div>
                       <div class="navbar__last">

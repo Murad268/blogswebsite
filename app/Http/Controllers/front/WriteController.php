@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\front;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\writeblogs\WriteBlogsRequest;
 use App\Models\User;
 use App\Models\Blog;
 use App\Models\Categories;
 use App\Services\DataService;
-
+use Illuminate\Support\Str;
 
 class WriteController extends Controller
 {
@@ -26,7 +25,7 @@ class WriteController extends Controller
     {
         $user_id = auth()->user()->id;
         $images = ['image' => $request->image, 'banner' => $request->banner];
-        $customRequest = $request->merge(['user_id' => $user_id]);
+        $customRequest = $request->merge(['user_id' => $user_id,'slug' => Str::slug($request->title)]);
         if($this->DataService->simple_create_withImage(new Blog(), $customRequest, $images, 'blogs')){
             return redirect()->route('front.blogs');
         };

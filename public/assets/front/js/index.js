@@ -24,18 +24,21 @@ function toggleNavbar() {
 }
 
 function exitAccount() {
+    let locale = document.documentElement.getAttribute("data-locale");
+
     document
         .getElementById("exit-button")
         .addEventListener("click", function (e) {
             e.preventDefault();
             Swal.fire({
-                title: "Çıxmaq istədiyinizə əminsiniz?",
-                text: "Əgər çıxırsınızsa, yaddaşınızdakı məlumatlar itəcək!",
+                title: translate()[locale].title,
+                text: translate()[locale].exitMessage,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Bəli, çıx!",
+                confirmButtonText: translate()[locale].confirmButtonText,
+                cancelButtonText: translate()[locale].exit,
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = "/user/logout";
@@ -44,20 +47,75 @@ function exitAccount() {
         });
 }
 
+function translate() {
+    const translations = {
+        en: {
+            title: "Are you sure you want to log out?",
+            exitMessage:
+                "If you log out, the data in your memory will be lost!",
+            confirmButtonText: "Yes, get out!",
+            exit: "no!",
+        },
+        ru: {
+            title: "Вы уверены, что хотите выйти?",
+            exitMessage:
+                "Если вы выйдете, данные в вашей памяти будут потеряны!",
+            confirmButtonText: "Да, выход!",
+            exit: "нет!",
+        },
+        az: {
+            title: "Çıxmaq istədiyinizə əminsiniz?",
+            exitMessage: "Çıxsanız, yaddaşınızdakı məlumatlar itiriləcək!",
+            confirmButtonText: "Bəli, çıx get!",
+            exit: "xeyr!",
+        },
+    };
+
+    return translations;
+}
+
+
+
+function translateDelete() {
+    const deleteTranslations = {
+        en: {
+            title: "Are you sure you want to delete this comment?",
+            message: "This action is irreversible.",
+            confirmButtonText: "Yes, delete!",
+        },
+        ru: {
+            title: "Вы уверены, что хотите удалить этот комментарий?",
+            message: "Это действие нельзя отменить.",
+            confirmButtonText: "Да, удалить!",
+        },
+        az: {
+            title: "Bu şərhi silmək istədiyinizə əminsiniz?",
+            message: "Bu əməliyyat geri qaytarıla bilməz.",
+            confirmButtonText: "Bəli, sil!",
+        },
+    };
+
+    return deleteTranslations;
+}
+
 function deleteComment(e) {
     document
         .getElementById("delete-button")
         .addEventListener("click", function (e) {
             e.preventDefault();
             let id = e.target.getAttribute("data-id");
+
+            const locale = document.documentElement.getAttribute("data-locale");
+            const translations = translateDelete();
+
             Swal.fire({
-                title: "Komment silmək istədiyinizdən əminsinizmi?",
-                text: "Bu addımın geri dönüşü yoxdur",
+                title: translations[locale].title,
+                text: translations[locale].message,
                 icon: "warning",
                 showCancelButton: true,
                 confirmButtonColor: "#3085d6",
                 cancelButtonColor: "#d33",
-                confirmButtonText: "Bəli, sil!",
+                confirmButtonText: translations[locale].confirmButtonText,
             }).then((result) => {
                 if (result.isConfirmed) {
                     window.location.href = "/blog/comment_delete/" + id;

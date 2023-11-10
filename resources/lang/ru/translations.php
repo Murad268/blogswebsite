@@ -19,6 +19,8 @@ return [
     'email' => 'Эл. почта',
     'message' => 'Сообщение',
     'send_message' => 'Отправить сообщение',
+    'user_position' => 'Позиция пользователя',
+    'user_address' => 'Адрес пользователя',
     'your_work_position' => 'Ваша должность',
     'empty' => 'Пусто',
     'your_addres' => 'Ваш адрес',

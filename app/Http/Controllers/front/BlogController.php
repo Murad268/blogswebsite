@@ -41,11 +41,11 @@ class BlogController extends Controller
 
     public function blogs($slug = null)
     {
-
+        $locale = app()->getLocale();
         if (!$slug) {
             $blogs = Blog::orderByDesc('created_at')->paginate(10);
         } else {
-            $foundCategory = Categories::where('slug', $slug)->first();
+            $foundCategory = Categories::where('slug->' . $locale, $slug)->first();
             if ($foundCategory) {
                 $blogs = Blog::where('category_id', $foundCategory->id)->paginate(10);
             } else {
