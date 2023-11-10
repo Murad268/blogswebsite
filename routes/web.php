@@ -84,5 +84,9 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
 
     Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
         Route::get('/users/user/{id}', [UserPageController::class, 'index'])->name('page');
+        Route::get('/users/user/follow/{id}', [UserPageController::class, 'follow'])->name('follow');
+        Route::get('/users/user/unfollow/{id}', [UserPageController::class, 'unfollow'])->name('unfollow');
+
+
     });
 });

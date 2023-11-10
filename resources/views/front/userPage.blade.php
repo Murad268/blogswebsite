@@ -16,7 +16,11 @@
                             <h5 class="my-3">{{$user->name}}</h5>
                             <p class="text-muted mb-1">{{ $user->position ? $user->position : 'Your work: empty' }}</p>
                             <p class="text-muted mb-4">{{ $user->address ? $user->address : 'Your work: empty' }}</p>
-                            <a href="" class="btn btn-dark">follow</a>
+                            @if($isFollower)
+                            <a style="cursor:pointer" data-id="{{$user->id}}" class="follow btn btn-success">unfollow</a>
+                            @else
+                            <a style="cursor:pointer" data-id="{{$user->id}}" class="follow btn btn-dark">follow</a>
+                            @endif
                         </div>
                     </div>
                 </div>

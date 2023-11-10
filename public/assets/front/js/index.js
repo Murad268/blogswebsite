@@ -81,7 +81,7 @@ async function likeBlog(url) {
 
 const like = document.querySelector(".like");
 const comments = document.querySelector(".comments");
-
+const follow = document.querySelector(".follow");
 if (like && comments) {
     const blog_id = comments.getAttribute("data-id");
     const likes_count = document.querySelector(".likes_count");
@@ -98,6 +98,22 @@ if (like && comments) {
             e.target.classList.add("fa-regular");
             likes_count.innerHTML = +likes_count.innerHTML - 1;
             likeBlog("http://127.0.0.1:8000/blog/dislike/" + id);
+        }
+    });
+}
+if (follow) {
+    follow.addEventListener("click", (e) => {
+        let id = e.target.getAttribute("data-id");
+        if (e.target.classList.contains("btn-dark")) {
+            e.target.classList.remove("btn-dark");
+            e.target.classList.add("btn-success");
+            e.target.textContent = "unfollow";
+            likeBlog("http://127.0.0.1:8000/users/users/user/follow/" + id);
+        } else {
+            e.target.classList.remove("btn-success");
+            e.target.classList.add("btn-dark");
+            likeBlog("http://127.0.0.1:8000/users/users/user/unfollow/" + id);
+            e.target.textContent = "follow";
         }
     });
 }
