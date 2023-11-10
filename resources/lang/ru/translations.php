@@ -51,5 +51,8 @@ return [
     'repeat_your_password' => 'Повторите ваш пароль',
     'have_an_account' => 'Есть аккаунт?',
     'login' => 'Вход',
+    'enter_a_valid_email_address' => 'Введите действующий адрес электронной почты',
+    'enter_password' => 'Введите пароль',
+    'name' => 'введите ваше полное имя',
 
 ];

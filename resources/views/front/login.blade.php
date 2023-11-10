@@ -18,7 +18,7 @@
 
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input name="email" type="email" id="form3Example3" class="form-control form-control-lg" placeholder="Enter a valid email address" />
+                            <input name="email" type="email" id="form3Example3" class="form-control form-control-lg" placeholder="{{__('translations.enter_a_valid_email_address')}}" />
                             <label class="form-label" for="form3Example3">{{__('translations.email_address')}}</label>
                         </div>
                         @error('email')
@@ -28,7 +28,7 @@
                         @enderror
                         <!-- Password input -->
                         <div class="form-outline mb-3">
-                            <input name="password" type="password" id="form3Example4" class="form-control form-control-lg" placeholder="Enter password" />
+                            <input name="password" type="password" id="form3Example4" class="form-control form-control-lg" placeholder="{{__('translations.enter_password')}}" />
                             <label class="form-label" for="form3Example4">{{__('translations.password')}}</label>
                         </div>
                         @error('password')

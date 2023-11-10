@@ -52,5 +52,9 @@ return [
     'repeat_your_password' => 'Şifrənizi təkrarlayın',
     'have_an_account' => 'Hesabınız var?',
     'login' => 'Giriş',
+    'enter_a_valid_email_address' => 'Düzgün e-poçt ünvanını daxil edin',
+    'enter_password' => 'Şifrəni daxil edin',
+    'name' => 'tam adınızı daxil edin',
+
 
 ];

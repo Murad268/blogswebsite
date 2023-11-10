@@ -19,8 +19,9 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="name" type="text" id="form3Example1c" class="form-control" />
-                                                <label class="form-label" for="form3Example1c">{{__('translations.register')}}</label>
+
+                                                <input placeholder="{{__('translations.name')}}" name="name" type="text" id="form3Example1c" class="form-control" />
+                                                <label class="form-label" for="form3Example1c">{{__('translations.firstname')}}</label>
                                             </div>
 
                                         </div>
@@ -32,7 +33,7 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="email" type="email" id="form3Example3c" class="form-control" />
+                                                <input placeholder="{{__('translations.enter_a_valid_email_address')}}" name="email" type="email" id="form3Example3c" class="form-control" />
                                                 <label class="form-label" for="form3Example3c">{{__('translations.your_email')}}</label>
                                             </div>
 
@@ -45,10 +46,9 @@
                                         <div class="d-flex flex-row align-items-center mb-4">
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
-                                                <input name="password" type="password" id="form3Example4c" class="form-control" />
+                                                <input placeholder="{{__('translations.enter_password')}}" name="password" type="password" id="form3Example4c" class="form-control" />
                                                 <label class="form-label" for="form3Example4c">{{__('translations.password')}}</label>
                                             </div>
-
                                         </div>
                                         @error('password')
                                         <div style="font-size: 12px; margin-top: -20px; padding: 10px;margin-left: 15px" class="alert alert-danger" role="alert">
