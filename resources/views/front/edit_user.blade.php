@@ -8,7 +8,7 @@
             <div>
                 <h1 class="write__blog">edit your profile</h1>
 
-                <form enctype="multipart/form-data" method="get" action="{{route('front.blogs')}}">
+                <form enctype="multipart/form-data" method="post" action="{{route('front.update_user')}}">
                     @csrf
                     <div class="form-group mb-3">
                         @if(auth()->check() && auth()->user()->avatar)
