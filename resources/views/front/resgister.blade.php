@@ -12,7 +12,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
                                     <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
-                                        Sign up
+                                        {{__('translations.register')}}
                                     </p>
                                     <form id="registrationForm" method="post" action="{{route('front.user.register_add')}}" class="mx-1 mx-md-4">
                                         @csrf
@@ -20,7 +20,7 @@
                                             <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="name" type="text" id="form3Example1c" class="form-control" />
-                                                <label class="form-label" for="form3Example1c">Your Name</label>
+                                                <label class="form-label" for="form3Example1c">{{__('translations.register')}}</label>
                                             </div>
 
                                         </div>
@@ -33,7 +33,7 @@
                                             <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="email" type="email" id="form3Example3c" class="form-control" />
-                                                <label class="form-label" for="form3Example3c">Your Email</label>
+                                                <label class="form-label" for="form3Example3c">{{__('translations.your_email')}}</label>
                                             </div>
 
                                         </div>
@@ -46,7 +46,7 @@
                                             <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input name="password" type="password" id="form3Example4c" class="form-control" />
-                                                <label class="form-label" for="form3Example4c">Password</label>
+                                                <label class="form-label" for="form3Example4c">{{__('translations.password')}}</label>
                                             </div>
 
                                         </div>
@@ -59,7 +59,7 @@
                                             <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                                             <div class="form-outline flex-fill mb-0">
                                                 <input type="password" name="password__repeat" id="form3Example4cd" class="form-control" />
-                                                <label class="form-label" for="form3Example4cd">Repeat your password</label>
+                                                <label class="form-label" for="form3Example4cd">{{__('translations.repeat_your_password')}}</label>
                                             </div>
 
                                         </div>
@@ -70,11 +70,11 @@
                                         @enderror
                                         <div class="mx-4 mb-3 mb-lg-4">
                                             <button type="submit" class="btn btn-primary btn-lg">
-                                                Register
+                                                {{__('translations.register')}}
                                             </button>
                                             <p class="small fw-bold mt-2 pt-1 mb-0">
-                                                Have an account?
-                                                <a href="{{route('front.user.login')}}" class="link-danger">login</a>
+                                                {{__('translations.have_an_account')}}
+                                                <a href="{{route('front.user.login')}}" class="link-danger">{{__('translations.login')}}</a>
                                             </p>
                                         </div>
                                     </form>

@@ -10,5 +10,5 @@ class Settings extends Model
     use HasFactory;
     use HasTranslations;
     protected $guarded = [];
-    public $translatable = ['terms_of_use', 'privacy_policy', 'cookie_policy'];
+    public $translatable = ['about', 'copywrite'];
 }

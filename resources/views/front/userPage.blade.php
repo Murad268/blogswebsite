@@ -50,7 +50,7 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">User Follows</p>
+                                    <p class="mb-4">{{__('translations.user_follows')}}</p>
                                     <div class="followers">
                                         @if($follows != null and $follows->count()>0)
                                         @if($follows->count() > 0)
@@ -73,7 +73,7 @@
                                         @endforeach
 
                                         @else
-                                        <div>İstifadəçi heç kimi izləmir</div>
+                                        <div>{{__('translations.follows_not')}}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -82,7 +82,7 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">User Followers</p>
+                                    <p class="mb-4">{{__('translations.user_followers')}}</p>
                                     <div class="followers">
                                         @if($followers != null and $followers->count() > 0)
                                         @if($followers->count() > 0)
@@ -105,7 +105,7 @@
                                         @endforeach
 
                                         @else
-                                        <div>istifadəçinin heç bir izləyicisi yoxdur</div>
+                                        <div>{{__('translations.followers_not')}}</div>
                                         @endif
 
                                     </div>

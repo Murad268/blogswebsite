@@ -3,7 +3,7 @@
         <div class="footer__top">
             <div>
                 <div>
-                    <h4>About</h4>
+                    <h4>{{__('translations.about')}}</h4>
                     <p>
                         {{$settings->about}}
                     </p>
@@ -16,7 +16,7 @@
                 </div>
             </div>
             <div>
-                <h4>Quick Link</h4>
+                <h4>{{__('translations.quickLink')}}</h4>
                 <ul>
                     <li><a href="{{route('front.home')}}">{{__('nav-links.home')}}</a></li>
                     <li><a href="{{route('front.blogs')}}">{{__('nav-links.blogs')}}</a></li>
@@ -33,7 +33,7 @@
                 </ul>
             </div>
             <div>
-                <h4>Category</h4>
+                <h4>{{__('translations.category')}}</h4>
                 <ul>
                     @foreach($categories as $category)
                     <li><a href="{{route('front.blogs', $category->slug)}}">{{$category->title}}</a></li>
@@ -42,8 +42,8 @@
             </div>
             <form method="post" action="{{route('front.weekly')}}" class="newsletter">
                 @csrf
-                <h5>Weekly Newsletter</h5>
-                <p>Get blog articles and offers via email</p>
+                <h5>{{__('translations.weekly')}}</h5>
+                <p>{{__('translations.week_subtitle')}}</p>
                 @error('email')
                 <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
                     {{$message}}
@@ -57,7 +57,7 @@
                     </svg>
 
                 </div>
-                <button>Subscribe</button>
+                <button>{{__('translations.subscribe')}}</button>
             </form>
         </div>
         <hr />
@@ -68,7 +68,7 @@
                 </div>
                 <div>
                     {!!$settings->footer_logo_text!!}
-                    <p>{{$settings->copywrite}}</p>
+                    <p>{{$copywrite}}</p>
                 </div>
             </div>
             <div class="footer__bottom__right">

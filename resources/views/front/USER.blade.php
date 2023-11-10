@@ -15,13 +15,13 @@
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
                             @endif
                             <h5 class="my-3">{{Auth::user()->name}}</h5>
-                            <p class="text-muted mb-1">{{ auth()->check() && auth()->user()->position ? auth()->user()->position : 'Your work: empty' }}</p>
-                            <p class="text-muted mb-4">{{ auth()->check() && auth()->user()->address ? auth()->user()->address : 'Your work: empty' }}</p>
+                            <p class="text-muted mb-1">{{ auth()->check() && auth()->user()->position ? auth()->user()->position : __('translations.your_work_position'). ': '. __('translations.empty') }}</p>
+                            <p class="text-muted mb-4">{{ auth()->check() && auth()->user()->address ? auth()->user()->address :  __('translations.your_addres'). ': '. __('translations.empty') }}</p>
                             <div>
-                                <a href="{{route('front.edit_user')}}">edit your info</a>
+                                <a href="{{route('front.edit_user')}}">{{__('translations.edit_your_info')}}</a>
                             </div>
                             <div>
-                                <a href="{{route('front.edit_pass')}}">change your password</a>
+                                <a href="{{route('front.edit_pass')}}">{{__('translations.change_your_password')}}</a>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Full Name</p>
+                                    <p class="mb-0">{{__('translations.firstname')}}</p>
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{Auth::user()->name}}</p>
@@ -40,7 +40,7 @@
                             <hr />
                             <div class="row">
                                 <div class="col-sm-3">
-                                    <p class="mb-0">Email</p>
+                                    <p class="mb-0">{{__('translations.email')}}</p>
                                 </div>
                                 <div class="col-sm-9">
                                     <p class="text-muted mb-0">{{Auth::user()->email}}</p>
@@ -52,7 +52,7 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">Your Follows</p>
+                                    <p class="mb-4">{{__('translations.your_follows')}}</p>
                                     <div class="followers">
                                         @if($follows != null and $follows->count() > 0)
                                         @if($follows->count() > 0)
@@ -75,7 +75,7 @@
                                         @endforeach
 
                                         @else
-                                        <div>İstifadəçi heç kimi izləmir</div>
+                                        <div>{{__('translations.follows_not')}}</div>
                                         @endif
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">Your Followers</p>
+                                    <p class="mb-4">{{__('translations.your_followers')}}</p>
                                     <div class="followers">
                                         @if($followers != null and $followers->count() > 0)
                                         @if($followers->count() > 0)
@@ -107,7 +107,7 @@
                                         @endforeach
 
                                         @else
-                                        <div>istifadəçinin heç bir izləyicisi yoxdur</div>
+                                        <div>{{__('translations.followers_not')}}</div>
                                         @endif
 
                                     </div>

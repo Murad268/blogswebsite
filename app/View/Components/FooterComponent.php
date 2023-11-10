@@ -25,7 +25,8 @@ class FooterComponent extends Component
     {
         $categories = Categories::all();
         $settings = Settings::first();
+        $copywrite = $settings->copywrite;
 
-        return view('components.footer-component', compact('categories', 'settings'));
+        return view('components.footer-component', compact('categories', 'settings', 'copywrite'));
     }
 }

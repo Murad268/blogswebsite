@@ -12,7 +12,7 @@ class WriteBlogsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required',
+            'title' => ['required', 'min:70', 'max:120'],
             'category_id' => ['required'],
             'desc' => ['required'],
         ];
@@ -24,6 +24,8 @@ class WriteBlogsRequest extends FormRequest
     {
         return [
             'title.required' => 'Ad sahəsi mütləqdir.',
+            'title.min' => 'Minimum 70 simvol',
+            'title.max' => 'Maksimum 120 simvol',
             'category_id.required' => 'Kateqoriya seçimi mütləqdir.',
             'desc.required' => 'Əgər blog yazmaq fikrin yoxdursa, o zaman niyə burdasan?'
         ];

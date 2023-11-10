@@ -36,7 +36,7 @@
 <main>
     <section class="posts">
         <div class="front_container">
-            <h3 class="title_sec">Latest Post</h3>
+            <h3 class="title_sec">{{__('translations.latest')}}</h3>
             <div class="posts__wrapper">
                 @foreach($blogs as $blog)
                 <a href="{{route('front.blog', $blog->slug)}}" class="post">

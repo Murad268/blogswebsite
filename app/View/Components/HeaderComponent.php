@@ -23,6 +23,8 @@ class HeaderComponent extends Component
     public function render(): View|Closure|string
     {
         $settings = Settings::first();
-        return view('components.header-component', compact('settings'));
+        $about = $settings->about;
+
+        return view('components.header-component', compact('settings', 'about'));
     }
 }
