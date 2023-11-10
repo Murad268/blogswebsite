@@ -13,7 +13,6 @@
                 @if($blogs->count() > 0)
                 @foreach($blogs as $blog)
                 <a href="{{ route('front.blog', $blog->slug) }}" class="post">
-
                     <div class="post__img">
                         <img src="{{ url('storage/' . $blog->image) }}" alt="" />
                     </div>
@@ -35,13 +34,13 @@
                 </a>
                 @endforeach
                 @else
-                <div>Blogs not found</div>
-                @endif
+                <div>{{__('translations.blogs_not_found')}}</< /div>
+                    @endif
+                </div>
             </div>
-        </div>
-        <div style="width: max-content; margin:0 auto" class="pag">
-            {{$blogs->links()}}
-        </div>
+            <div style="width: max-content; margin:0 auto" class="pag">
+                {{$blogs->links()}}
+            </div>
     </section>
 </main>
 @endsection

@@ -49,13 +49,13 @@
                             <form id="add_comment" method="post" action="{{route('front.comment', $blog->id)}}" class="form-outline mb-4">
                                 @csrf
                                 @method('post')
-                                <input name="comment" type="text" id="addANote" class="form-control" placeholder="Type comment..." />
+                                <input name="comment" type="text" id="addANote" class="form-control" placeholder="{{__('translations.type_comment')}}..." />
                                 @error('comment')
                                 <div style="font-size: 12px; padding: 10px;" class="mt-2 alert alert-danger" role="alert">
                                     {{$message}}
                                 </div>
                                 @enderror
-                                <button style="display:block;font-size: 10px; margin:0 auto" class="btn mt-2 btn-success">Add comment</button>
+                                <button style="display:block;font-size: 10px; margin:0 auto" class="btn mt-2 btn-success">{{__('translations.add_comment')}}</button>
                             </form>
 
                             <div data-id="{{$blog->id}}" class="comments">

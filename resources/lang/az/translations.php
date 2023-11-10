@@ -55,6 +55,8 @@ return [
     'enter_a_valid_email_address' => 'Düzgün e-poçt ünvanını daxil edin',
     'enter_password' => 'Şifrəni daxil edin',
     'name' => 'tam adınızı daxil edin',
-
+    'type_comment' => 'şərh yazın',
+    'add_comment' => 'şərh əlavə edin',
+    'blogs_not_found' => 'Bloqlar tapılmadı'
 
 ];

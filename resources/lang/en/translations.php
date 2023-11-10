@@ -53,12 +53,12 @@ return [
     'repeat_your_password' => 'Repeat your password',
     'have_an_account' => 'Have an account?',
     'login' => 'login',
-
-
-
-
-
     'enter_a_valid_email_address' => 'Enter a valid email address',
     'enter_password' => 'Enter password',
     'name' => 'enter your full name',
+
+    'type comment' => 'type comment',
+    'add comment' => 'add comment',
+    'blogs_not_found' => 'Blogs not found'
+
 ];
