@@ -9,7 +9,7 @@ return [
     'editpass' => 'parolu redaktə edin',
     'home' => 'ana səhifə',
     'login' => 'daxil ol',
-    'privacy' => 'gizlilik Siyasəti',
+    'privacy' => 'gizlilik siyasəti',
     'register' => 'qeydiyyat',
     'search' => 'axtarış nəticələri',
     'terms' => 'istifadə qaydaları'

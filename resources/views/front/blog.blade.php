@@ -12,7 +12,7 @@
             <a href="{{ $blog->user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $blog->user->id) }}" style="color:#696a75" class="info">
 
                 @if($blog->user->avatar)
-                <img src="{{ url('storage/' . $blog->user->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
+                <img src="{{ url('storage/' . $blog->user->avatar) }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
                 @else
                 <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px">
                 @endif

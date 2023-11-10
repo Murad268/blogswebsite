@@ -10,6 +10,8 @@ class HomeController extends Controller
     public function index()
     {
         $blogs = ModelsBlog::with('user')->orderBy('created_at', 'desc')->take(10)->get();
-        return view('front.home', compact('blogs'));
+        $blog = ModelsBlog::inRandomOrder()->first();
+
+        return view('front.home', compact('blogs', 'blog'));
     }
 }

@@ -18,16 +18,16 @@
             <div>
                 <h4>Quick Link</h4>
                 <ul>
-                    <li><a href="{{route('front.home')}}">Home</a></li>
-                    <li><a href="{{route('front.blogs')}}">Blogs</a></li>
-                    <li><a href="{{route('front.write')}}">Write a blog</a></li>
-                    <li><a href="{{route('front.contact')}}">Contact</a></li>
+                    <li><a href="{{route('front.home')}}">{{__('nav-links.home')}}</a></li>
+                    <li><a href="{{route('front.blogs')}}">{{__('nav-links.blogs')}}</a></li>
+                    <li><a href="{{route('front.write')}}">{{__('nav-links.write')}}</a></li>
+                    <li><a href="{{route('front.contact')}}">{{__('nav-links.contact')}}</a></li>
                     @guest
-                    <li><a href="{{route('front.user.login')}}">Log in</a></li>
+                    <li><a href="{{route('front.user.login')}}">{{__('nav-links.login')}}</a></li>
                     @endguest
                     @auth
-                    <li><a href="{{route('front.user')}}">Account</a></li>
-                    <li><a id="exit-button" href="{{route('front.user.logout')}}">Exit</a></li>
+                    <li><a href="{{route('front.user')}}">{{__('nav-links.account')}}</a></li>
+                    <li><a id="exit-button" href="{{route('front.user.logout')}}">{{__('nav-links.exit')}}</a></li>
                     @endauth
 
                 </ul>
@@ -73,9 +73,9 @@
             </div>
             <div class="footer__bottom__right">
                 <ul>
-                    <li><a href="{{route('front.terms_of_use')}}">Terms of Use</a></li>
-                    <li><a href="{{route('front.privacy_policy')}}">Privacy Policy</a></li>
-                    <li><a href="{{route('front.cookie_policy')}}">Cookie Policy</a></li>
+                    <li><a href="{{route('front.terms_of_use')}}">{{__('nav-links.terms')}}</a></li>
+                    <li><a href="{{route('front.privacy_policy')}}">{{__('nav-links.privacy')}}</a></li>
+                    <li><a href="{{route('front.cookie_policy')}}">{{__('nav-links.cookies')}}</a></li>
                 </ul>
             </div>
         </div>
