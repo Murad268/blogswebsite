@@ -6,6 +6,7 @@ use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\LoginController;
 use App\Http\Controllers\front\ResgisterController;
 use App\Http\Controllers\front\USERController;
+use App\Http\Controllers\front\UserPageController;
 use App\Http\Controllers\front\WriteController;
 use App\Http\Controllers\MailController;
 use Illuminate\Support\Facades\Route;
@@ -73,4 +74,15 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
     Route::post('/mail', [MailController::class, 'send'])->name('mail');
     Route::post('/weekly', [MailController::class, 'weekly'])->name('weekly');
 
+
+
+
+
+
+
+
+
+    Route::group(['prefix' => 'users', 'as' => 'user.'], function () {
+        Route::get('/users/user/{id}', [UserPageController::class, 'index'])->name('page');
+    });
 });

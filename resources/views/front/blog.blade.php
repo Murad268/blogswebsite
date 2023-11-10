@@ -9,14 +9,15 @@
             {{$blog->title}}
         </h1>
         <div class="header__body__footer">
-            <div class="info">
-                @if(auth()->check() && auth()->user()->avatar)
-                <img src="{{ url('storage/' . blog()->user()->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
+            <a href="{{ $blog->user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $blog->id) }}" style="color:#696a75" class="info">
+
+                @if(auth()->check() && $blog->user->avatar)
+                <img src="{{ url('storage/' . $blog->user->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
                 @else
                 <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px">
                 @endif
                 <div class="name">{{$blog->user->name}}</div>
-            </div>
+            </a>
             <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>
         </div>
         <div class="blog__banner">
@@ -68,7 +69,7 @@
                                         <div class="mt-3 d-flex justify-content-between">
                                             <div class="d-flex flex-row align-items-center">
                                                 @if(auth()->check() && auth()->user()->avatar)
-                                                <img src="{{ url('storage/' . blog()->user()->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
+                                                <img src="{{ url('storage/' . $blog->user->avatar) }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
                                                 @else
 
                                                 <img src="{{url('storage/'.'users/userno.png')}}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
