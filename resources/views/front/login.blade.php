@@ -1,5 +1,6 @@
 @extends('front.layout.app')
-@section('title', 'login')
+@section('title', __('page_titles.login'))
+
 @section('content')
 <main class="login">
     <section class="vh-100">
@@ -33,7 +34,7 @@
                         </div>
                         @enderror
                         <div class="d-flex justify-content-between align-items-center">
-                          
+
                             <div class="form-check mb-0">
                                 <input name="remember" class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
                                 <label class="form-check-label" for="form2Example3">

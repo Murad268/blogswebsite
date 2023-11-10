@@ -4,7 +4,7 @@
               <div class="navbar__wrapper">
                   <div class="navbar__logo">
                       <a href="">
-                          <img src="{{asset('assets/front/icons/Logo (1).svg')}}" alt="" />
+                          <img src="{{ url('storage/' . $settings->logo) }}" alt="" />
                       </a>
                   </div>
                   <div class="navbar__center">

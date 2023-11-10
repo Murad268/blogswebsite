@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\front\BlogController;
 use App\Http\Controllers\front\ContactController;
+use App\Http\Controllers\front\CookieController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\LoginController;
+use App\Http\Controllers\front\PrivacyController;
 use App\Http\Controllers\front\ResgisterController;
+use App\Http\Controllers\front\TermsController;
 use App\Http\Controllers\front\USERController;
 use App\Http\Controllers\front\UserPageController;
 use App\Http\Controllers\front\WriteController;
@@ -33,6 +36,11 @@ Route::group(['prefix' => 'user', 'as' => 'front.user.'], function () {
 
 Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/terms_of_use', [TermsController::class, 'index'])->name('terms_of_use');
+    Route::get('/privacy_policy', [PrivacyController::class, 'index'])->name('privacy_policy');
+    Route::get('/cookie_policy', [CookieController::class, 'index'])->name('cookie_policy');
+
+
 
 
     Route::get('/blog', [BlogController::class, 'index'])->name('blog');
@@ -86,7 +94,5 @@ Route::group(['middleware' => 'auth', 'prefix' => '', 'as' => 'front.'], functio
         Route::get('/users/user/{id}', [UserPageController::class, 'index'])->name('page');
         Route::get('/users/user/follow/{id}', [UserPageController::class, 'follow'])->name('follow');
         Route::get('/users/user/unfollow/{id}', [UserPageController::class, 'unfollow'])->name('unfollow');
-
-
     });
 });

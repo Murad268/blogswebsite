@@ -5,27 +5,31 @@
                 <div>
                     <h4>About</h4>
                     <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                        enim ad minim veniam
+                        {{$settings->about}}
                     </p>
                 </div>
                 <div class="footer__contacts">
                     <div>
-                        <strong>Email : </strong><span>info@jstemplate.net</span>
+                        <strong>Email : </strong><span>{{$settings->email}}</span>
                     </div>
-                    <div><strong>Phone : </strong><span>880 123 456 789</span></div>
+                    <div><strong>Phone : </strong><span>{{$settings->phone}}</span></div>
                 </div>
             </div>
             <div>
                 <h4>Quick Link</h4>
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">About</a></li>
-                    <li><a href="">Blog</a></li>
-                    <li><a href="">Archived</a></li>
-                    <li><a href="">Author</a></li>
-                    <li><a href="">Contact</a></li>
+                    <li><a href="{{route('front.home')}}">Home</a></li>
+                    <li><a href="{{route('front.blogs')}}">Blogs</a></li>
+                    <li><a href="{{route('front.write')}}">Write a blog</a></li>
+                    <li><a href="{{route('front.contact')}}">Contact</a></li>
+                    @guest
+                    <li><a href="{{route('front.user.login')}}">Log in</a></li>
+                    @endguest
+                    @auth
+                    <li><a href="{{route('front.user')}}">Account</a></li>
+                    <li><a id="exit-button" href="{{route('front.user.logout')}}">Exit</a></li>
+                    @endauth
+
                 </ul>
             </div>
             <div>
@@ -60,18 +64,18 @@
         <div class="footer__bottom">
             <div class="footer__bottom__left">
                 <div class="footer__bottom__left__img">
-                    <img src="{{asset('assets/front/icons/Logo (1)f.svg')}}" alt="" />
+                    <img src="{{ url('storage/' . $settings->footer_logo) }}" alt="" />
                 </div>
                 <div>
-                    <div class="title"><span>Meta</span> <strong>Blog</strong></div>
-                    <p>© JS Template 2023. All Rights Reserved.</p>
+                    {!!$settings->footer_logo_text!!}
+                    <p>{{$settings->copywrite}}</p>
                 </div>
             </div>
             <div class="footer__bottom__right">
                 <ul>
-                    <li><a href="">Terms of Use</a></li>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Cookie Policy</a></li>
+                    <li><a href="{{route('front.terms_of_use')}}">Terms of Use</a></li>
+                    <li><a href="{{route('front.privacy_policy')}}">Privacy Policy</a></li>
+                    <li><a href="{{route('front.cookie_policy')}}">Cookie Policy</a></li>
                 </ul>
             </div>
         </div>

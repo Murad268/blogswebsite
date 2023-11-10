@@ -1,10 +1,11 @@
 @extends('front.layout.app')
-@section('title', 'blogs')
+@section('title', __('page_titles.search'))
+
 @section('content')
 <main>
     <section class="posts">
         <div class="front_container">
-          
+
             <div class="posts__wrapper">
                 @if($blogs->count() > 0)
                 @foreach($blogs as $blog)

@@ -1,5 +1,6 @@
 @extends('front.layout.app')
-@section('title', 'home')
+@section('title', __('page_titles.home'))
+
 @section('headbody')
 <div class="header__body">
     <div class="front_container">
@@ -43,7 +44,7 @@
                         {{$blog->title}}
                     </h2>
                     <div class="header__body__footer">
-                        <div  class="info">
+                        <div class="info">
                             @if( $blog->user->avatar)
                             <img src="{{ url('storage/' . $blog->user->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
                             @else

@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Categories;
+use App\Models\Settings;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -23,6 +24,8 @@ class FooterComponent extends Component
     public function render(): View|Closure|string
     {
         $categories = Categories::all();
-        return view('components.footer-component', compact('categories'));
+        $settings = Settings::first();
+
+        return view('components.footer-component', compact('categories', 'settings'));
     }
 }

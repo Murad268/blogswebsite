@@ -1,5 +1,6 @@
 @extends('front.layout.app')
-@section('title', 'register')
+@section('title', __('page_titles.register'))
+
 @section('content')
 <main>
     <section style="height: 800px;">

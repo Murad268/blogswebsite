@@ -1,5 +1,6 @@
 @extends('front.layout.app')
-@section('title', 'edit profile')
+@section('title', __('page_titles.edituser'))
+
 @section('content')
 
 <main class="write">
