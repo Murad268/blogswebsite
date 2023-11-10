@@ -61,8 +61,8 @@ return [
     'enter_password' => 'Enter password',
     'name' => 'enter your full name',
 
-    'type comment' => 'type comment',
-    'add comment' => 'add comment',
+    'type_comment' => 'type comment',
+    'add_comment' => 'add comment',
     'blogs_not_found' => 'Blogs not found'
 
 ];

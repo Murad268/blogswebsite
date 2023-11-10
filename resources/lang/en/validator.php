@@ -1,0 +1,22 @@
+<?php
+return [
+    'comment_required' => 'What\'s the point of clicking a button if you\'re not going to enter a comment?',
+    'login_email_required' => 'e-mail must be entered during login',
+    'login_password_required' => 'It is not possible to log in without a password. You probably know?',
+    'name' => 'name field is required',
+    'email' => 'email field is required',
+    'surname' => 'surname field is required',
+    'message' => 'message field is required',
+    'email_email' => 'Please enter a valid email address',
+    'email_unique' => 'This email address is already registered',
+    'password' => 'password field is required',
+    'password_min' => 'Password must be at least 8 characters long',
+    'password_regex' => 'Password must contain at least one capital letter and one symbol',
+    'password__repeat' => 'password repeat field is required',
+    'password__repeat_same' => 'The confirmation password does not match the password',
+    'title_required' => 'title field is required',
+    'title_min' => 'The title can be a minimum of 70 characters',
+    'title_max' => 'The title can be a maximum of 120 characters',
+    'category_id_required' => 'category_id field is required',
+    'desc_required' => 'desc field is required',
+];

@@ -31,10 +31,10 @@ class MailRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'İsim alanı zorunludur.',
-            'surname.required' => 'Soyad alanı zorunludur.',
-            'email.required' => 'E-posta alanı zorunludur.',
-            'message.required' => 'Mesaj alanı zorunludur.',
+            'name.required' => __('validator.name'),
+            'surname.required' => __('validator.surname'),
+            'email.required' => __('validator.email'),
+            'message.required' => __('validator.message'),
         ];
     }
 }

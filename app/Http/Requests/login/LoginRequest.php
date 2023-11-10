@@ -25,8 +25,8 @@ class LoginRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'E-poçt ünvanı mütləqdir.',
-            'password.required' => 'Şifrə sahəsi mütləqdir.',
+            'email.required' => __('validator.login_email_required'),
+            'password.required' => __('validator.login_password_required'),
         ];
     }
 }

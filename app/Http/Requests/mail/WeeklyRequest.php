@@ -26,8 +26,8 @@ class WeeklyRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'email.required' => 'E-poçt ünvanı mütləqdir.',
-            'email.email' => 'Düzgün e-poçt ünvanı daxil edin.',
+            'email.required' => __('validator.email'),
+            'email.email' => __('validator.email_email'),
         ];
     }
 }

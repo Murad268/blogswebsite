@@ -35,15 +35,15 @@ class RegisterRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Ad sahəsi mütləqdir.',
-            'email.required' => 'E-poçt ünvanı mütləqdir.',
-            'email.email' => 'Düzgün e-poçt ünvanı daxil edin.',
-            'email.unique' => 'Bu e-poçt ünvanı artıq qeydiyyatdan keçib.',
-            'password.required' => 'Şifrə sahəsi mütləqdir.',
-            'password.min' => 'Şifrə minimum 8 simvol olmalıdır.',
-            'password.regex' => 'Şifrədə minimum bir böyük hərf və bir simvol olmalıdır.',
-            'password__repeat.required' => 'Təsdiq şifrəsi sahəsi mütləqdir.',
-            'password__repeat.same' => 'Təsdiq şifrəsi şifrə ilə uyğun gəlmir.',
+            'name.required' => __('validator.name'),
+            'email.required' => __('validator.email'),
+            'email.email' => __('validator.email_email'),
+            'email.unique' => __('validator.email_unique'),
+            'password.required' => __('validator.password'),
+            'password.min' => __('validator.password_min'),
+            'password.regex' => __('validator.password_regex'),
+            'password__repeat.required' => __('validator.password__repeat'),
+            'password__repeat.same' => __('validator.password__repeat_same'),
         ];
     }
 }

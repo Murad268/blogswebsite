@@ -22,7 +22,7 @@ class AddCommentRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'comment.required' => 'Komment sahəsi mütləqdir.'
+            'comment.required' => __('validator.comment_required')
         ];
     }
 }

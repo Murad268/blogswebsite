@@ -25,11 +25,11 @@ class WriteBlogsRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'title.required' => 'Ad sahəsi mütləqdir.',
-            'title.min' => 'Minimum 70 simvol',
-            'title.max' => 'Maksimum 120 simvol',
-            'category_id.required' => 'Kateqoriya seçimi mütləqdir.',
-            'desc.required' => 'Əgər blog yazmaq fikrin yoxdursa, o zaman niyə burdasan?'
+            'title.required' => __('validator.title_required'),
+            'title.min' => __('validator.title_min'),
+            'title.max' => __('validator.title_max'),
+            'category_id.required' => __('validator.category_id_required'),
+            'desc.required' => __('validator.desc_required')
         ];
     }
 }

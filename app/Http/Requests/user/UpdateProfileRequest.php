@@ -23,10 +23,10 @@ class UpdateProfileRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'name.required' => 'Ad sahəsi tələb olunur.',
-            'email.required' => 'Email sahəsi tələb olunur.',
-            'email.email' => 'Düzgün email ünvanı daxil edin.',
-            'email.unique' => 'Bu email artıq istifadə olunur, başqa bir email seçin.',
+            'name.required' => __('validator.name'),
+            'email.required' => __('validator.email'),
+            'email.email' => __('validator.email_email'),
+            'email.unique' => __('validator.email_unique'),
         ];
     }
 }
