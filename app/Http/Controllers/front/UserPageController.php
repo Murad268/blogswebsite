@@ -15,8 +15,6 @@ class UserPageController extends Controller
     }
     public function index($id)
     {
-
-
         $user = User::findOrFail($id);
 
         if ($user) {
@@ -26,7 +24,10 @@ class UserPageController extends Controller
             } catch (\Exception $e) {
                 $isLike = false;
             }
-            return view('front.userPage', compact('user', 'isFollower'));
+            $followers = Follows::with('followers')->where('follow', $user->id)->paginate(1);
+
+            $follows = Follows::with('follows')->where('follower', $user->id)->paginate(1);
+            return view('front.userPage', compact('user', 'isFollower', 'follows', 'followers'));
         } else {
             return redirect()->route('404');
         }

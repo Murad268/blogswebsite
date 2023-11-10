@@ -17,9 +17,8 @@ class USERController extends Controller
     }
     public function index()
     {
-        $followers = Follows::with('followers')->where('follow', auth()->user()->id)->first();
-
-        $follows = Follows::with('follows')->where('follower', auth()->user()->id)->first();
+        $followers = Follows::with('followers')->where('follow', auth()->user()->id)->paginate(1);
+        $follows = Follows::with('follows')->where('follower', auth()->user()->id)->paginate(1);
         return view('front.USER', compact('followers', 'follows'));
     }
 

@@ -53,9 +53,14 @@
                                 <div class="card-body">
                                     <p class="mb-4">Your Follows</p>
                                     <div class="followers">
-                                        @if($follows != null)
-                                        @foreach($follows->follows as $user)
-                                        <div class="follower">
+                                        @if($follows != null and $follows->count() > 0)
+                                        @if($follows->count() > 0)
+                                        {{$follows->links()}}
+                                        @endif
+
+                                        @foreach($follows as $follow)
+                                        @foreach($follow->follows as $user)
+                                        <div style="width: 100%;" class="follower">
                                             <div class="img">
                                                 @if($user->avatar)
                                                 <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
@@ -64,14 +69,13 @@
                                                 @endif
                                             </div>
                                             <a style="color: #3B3C4A" href="{{ $user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $user->id) }}">{{$user->name}}</a>
-                                            <a " class=" btn btn-success text-light">follow</a>
                                         </div>
                                         @endforeach
+                                        @endforeach
+
                                         @else
-                                        <div>siz heç kimi izləmirsiniz</div>
+                                        <div>İstifadəçi heç kimi izləmir</div>
                                         @endif
-
-
                                     </div>
                                 </div>
                             </div>
@@ -81,10 +85,14 @@
                                 <div class="card-body">
                                     <p class="mb-4">Your Followers</p>
                                     <div class="followers">
+                                        @if($followers != null and $followers->count() > 0)
+                                        @if($followers->count() > 0)
+                                        {{$followers->links()}}
+                                        @endif
 
-                                        @if($followers != null)
-                                        @foreach($followers->followers as $user)
-                                        <div class="follower">
+                                        @foreach($followers as $follower)
+                                        @foreach($follower->followers as $user)
+                                        <div style="width: 100%;" class="follower">
                                             <div class="img">
                                                 @if($user->avatar)
                                                 <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
@@ -93,15 +101,13 @@
                                                 @endif
                                             </div>
                                             <a style="color: #3B3C4A" href="{{ $user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $user->id) }}">{{$user->name}}</a>
-                                            <a " class=" btn btn-success text-light">follow</a>
                                         </div>
                                         @endforeach
+                                        @endforeach
+
                                         @else
-                                        <div>sizin heç bir izləyiciniz yoxdur</div>
+                                        <div>istifadəçinin heç bir izləyicisi yoxdur</div>
                                         @endif
-
-
-
 
                                     </div>
                                 </div>

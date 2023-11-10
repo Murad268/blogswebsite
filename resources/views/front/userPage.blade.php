@@ -50,71 +50,31 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">Your Followers</p>
+                                    <p class="mb-4">User Follows</p>
                                     <div class="followers">
-                                        <div class="follower">
+                                        @if($follows != null and $follows->count()>0)
+                                        @if($follows->count() > 0)
+                                        {{$follows->links()}}
+                                        @endif
+
+                                        @foreach($follows as $follow)
+                                        @foreach($follow->follows as $user)
+                                        <div style="width: 100%;" class="follower">
                                             <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
+                                                @if($user->avatar)
+                                                <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
+                                                @else
+                                                <img src="{{ url('storage/' . 'users/userno.png') }}" alt="" />
+                                                @endif
                                             </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
+                                            <a style="color: #3B3C4A" href="{{ $user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $user->id) }}">{{$user->name}}</a>
                                         </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
+                                        @endforeach
+                                        @endforeach
+
+                                        @else
+                                        <div>İstifadəçi heç kimi izləmir</div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -122,71 +82,32 @@
                         <div class="col-md-6 followers-md">
                             <div class="card mb-4 mb-md-0">
                                 <div class="card-body">
-                                    <p class="mb-4">Your Followers</p>
+                                    <p class="mb-4">User Followers</p>
                                     <div class="followers">
-                                        <div class="follower">
+                                        @if($followers != null and $followers->count() > 0)
+                                        @if($followers->count() > 0)
+                                        {{$followers->links()}}
+                                        @endif
+
+                                        @foreach($followers as $follower)
+                                        @foreach($follower->followers as $user)
+                                        <div style="width: 100%;" class="follower">
                                             <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
+                                                @if($user->avatar)
+                                                <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
+                                                @else
+                                                <img src="{{ url('storage/' . 'users/userno.png') }}" alt="" />
+                                                @endif
                                             </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
+                                            <a style="color: #3B3C4A" href="{{ $user->id == auth()->user()->id ? route('front.user') : route('front.user.page', $user->id) }}">{{$user->name}}</a>
                                         </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
-                                        <div class="follower">
-                                            <div class="img">
-                                                <img src="https://cdn-icons-png.flaticon.com/512/666/666201.png" alt="" />
-                                            </div>
-                                            <a>Murad Agamedov</a>
-                                            <a class="btn btn-success">follow</a>
-                                        </div>
+                                        @endforeach
+                                        @endforeach
+
+                                        @else
+                                        <div>istifadəçinin heç bir izləyicisi yoxdur</div>
+                                        @endif
+
                                     </div>
                                 </div>
                             </div>
