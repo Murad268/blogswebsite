@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\user\UpdatePasswordRequest;
 use App\Http\Requests\user\UpdateProfileRequest;
+use App\Models\Follows;
 use App\Models\User;
 use App\Services\DataService;
 use Illuminate\Support\Facades\Auth;
@@ -16,7 +17,10 @@ class USERController extends Controller
     }
     public function index()
     {
-        return view('front.USER');
+        $followers = Follows::with('followers')->where('follow', auth()->user()->id)->first();
+
+        $follows = Follows::with('follows')->where('follower', auth()->user()->id)->first();
+        return view('front.USER', compact('followers', 'follows'));
     }
 
     public function edit_user()
