@@ -2,9 +2,7 @@
 
 namespace App\Http\Requests\mail;
 
-use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule as ValidationRule;
 
 class WeeklyRequest extends FormRequest
 {
@@ -21,7 +19,7 @@ class WeeklyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => ['required', 'email', ValidationRule::unique('weekly', 'email')],
+            'email' => ['required', 'email'],
         ];
     }
 
@@ -30,7 +28,6 @@ class WeeklyRequest extends FormRequest
         return [
             'email.required' => 'E-poçt ünvanı mütləqdir.',
             'email.email' => 'Düzgün e-poçt ünvanı daxil edin.',
-            'email.unique' => 'Bu e-poçt ünvanı artıq müraciət keçib.',
         ];
     }
 }
