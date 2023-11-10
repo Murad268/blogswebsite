@@ -7,10 +7,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Follows;
 use App\Models\User;
 use App\Services\DataService;
+use App\Services\MailService;
 
 class UserPageController extends Controller
 {
-    public function __construct(private DataService $DataService)
+    public function __construct(private DataService $DataService, private MailService $mailService)
     {
     }
     public function index($id)
@@ -38,7 +39,11 @@ class UserPageController extends Controller
     {
         $datas = ['follower' => auth()->user()->id, 'follow' => $userId];
         $newRequest = new \Illuminate\Http\Request($datas);
-        $this->DataService->simple_create(new Follows(), $newRequest);
+        if ($this->DataService->simple_create(new Follows(), $newRequest)) {
+                $this->mailService->sendMail('front.followmess', [
+                    'name' => auth()->user()->name
+                ], "follow", User::findOrFail($userId)->email);
+        }
     }
 
 
