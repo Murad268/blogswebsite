@@ -26,13 +26,19 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 |
 */
 
-Route::group(['prefix' => 'user', 'as' => 'front.user.'], function () {
-    Route::get('/login', [LoginController::class, 'index'])->name('login');
-    Route::post('/login_check', [LoginController::class, 'login_check'])->name('login_check');
-    Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::group([
+    'prefix' => LaravelLocalization::setLocale(),
 
-    Route::get('/register', [ResgisterController::class, 'index'])->name('register');
-    Route::post('/register_add', [ResgisterController::class, 'register_add'])->name('register_add');
+    'as' => 'front.',
+], function () {
+    Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+        Route::get('/login', [LoginController::class, 'index'])->name('login');
+        Route::post('/login_check', [LoginController::class, 'login_check'])->name('login_check');
+        Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+
+        Route::get('/register', [RegisterController::class, 'index'])->name('register');
+        Route::post('/register_add', [RegisterController::class, 'register_add'])->name('register_add');
+    });
 });
 
 Route::group(['middleware' => 'auth', 'prefix' => LaravelLocalization::setLocale(), 'as' => 'front.'], function () {

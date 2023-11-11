@@ -19,4 +19,8 @@ return [
     'title_max' => 'The title can be a maximum of 120 characters',
     'category_id_required' => 'category_id field is required',
     'desc_required' => 'desc field is required',
+    'image_required' => "Image upload is required",
+    'image_image' => "The file must be an image",
+    'image_mimes' => "Allowed file types: jpeg, png, jpg, gif",
+
 ];

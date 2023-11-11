@@ -19,5 +19,11 @@ return [
     'title_max' => 'Başlıq ən çox 120 simvol uzunluğunda ola bilər',
     'category_id_required' => 'category_id sahəsi tələb olunur',
     'desc_required' => 'desc sahəsi tələb olunur',
+    'image_required' => "şəklin yüklənməsi vacibdir",
+    'image_image' => "fayl ancaq şəkil ola bilər",
+    'image_mimes' => "mümkün fayl tipləri: jpeg,png,jpg,gif",
+
+
+
 ];
 
