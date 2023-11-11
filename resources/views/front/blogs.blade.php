@@ -28,7 +28,6 @@
                             @else
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px">
                             @endif
-
                             <div class="name">{{$blog->user->name}}</div>
                         </div>
                         <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>

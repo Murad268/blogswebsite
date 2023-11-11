@@ -24,7 +24,7 @@ class MailController extends Controller
                 'name' => $request->name,
                 'surname' => $request->surname,
                 'eemail' => $request->email,
-                'mess' => $request->mess,
+                'mess' => $request->message,
             ], "contact", 'agamedov94@mail.ru');
 
             return redirect()->route('front.contact')->with('success', 'Your mail sent successfully');

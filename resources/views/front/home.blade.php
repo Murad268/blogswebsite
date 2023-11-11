@@ -5,7 +5,7 @@
 <div class="header__body">
     <div class="front_container">
         <div class="header__body__content">
-            <img src="{{ url('storage/' . $blog->banner) }}" alt="" />
+            <img src="{{ asset('assets/front/images/'.$blog->banner) }}" alt="" />
             <div class="header__body__content__block">
                 <div>
                     <div class="category">{{$blog->category->title}}</div>

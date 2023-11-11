@@ -36,8 +36,8 @@ Route::group([
         Route::post('/login_check', [LoginController::class, 'login_check'])->name('login_check');
         Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-        Route::get('/register', [RegisterController::class, 'index'])->name('register');
-        Route::post('/register_add', [RegisterController::class, 'register_add'])->name('register_add');
+        Route::get('/register', [ResgisterController::class, 'index'])->name('register');
+        Route::post('/register_add', [ResgisterController::class, 'register_add'])->name('register_add');
     });
 });
 

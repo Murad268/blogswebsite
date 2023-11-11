@@ -18,7 +18,7 @@
                     <h2>
                         {{$blog->title}}
                     </h2>
-                    <div class="header__body__footer">
+                    <div class="">
                         <div class="info">
                             @if(auth()->check() && auth()->user()->avatar)
                             <img src="{{ asset('assets/front/images/'.$blog->image)}}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />

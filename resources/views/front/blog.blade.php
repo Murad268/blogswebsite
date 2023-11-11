@@ -21,7 +21,7 @@
             <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>
         </div>
         <div class="blog__banner">
-            <img style="max-height: 500px;" src="{{ url('storage/' . $blog->banner) }}" alt="" />
+            <img style="max-height: 500px;" src="{{ asset('assets/front/images/'.$blog->banner) }}" alt="" />
         </div>
         <div style="font-size: 20px; color: #4B6BFB" class="controlls">
             @if($isLike)

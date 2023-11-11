@@ -3,7 +3,7 @@
           <div class="front_container">
               <div class="navbar__wrapper">
                   <div class="navbar__logo">
-                      <a href="">
+                      <a href="{{route('front.home')}}">
                           <img src="{{ url('storage/' . $settings->logo) }}" alt="" />
                       </a>
                   </div>
@@ -43,7 +43,7 @@
                                   </svg>
                               </div>
                           </form>
-                      
+
                       </div>
                   </div>
                   <div class="navbar__hamburger">
