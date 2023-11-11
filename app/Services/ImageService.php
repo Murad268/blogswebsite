@@ -44,7 +44,7 @@ class ImageService
     {
 
         $randomName = Str::random(10);
-        $imagePath =  'assets/front/images/'.$model->$key;
+        $imagePath =  'assets/front/images/';
 
         $hasElement = $model->$key;
 

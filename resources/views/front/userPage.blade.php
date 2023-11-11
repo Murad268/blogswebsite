@@ -62,7 +62,7 @@
                                         <div style="width: 100%;" class="follower">
                                             <div class="img">
                                                 @if($user->avatar)
-                                                <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
+                                                <img src="{{ asset('assets/front/images/'.$user->avatar)}}" alt="" />
                                                 @else
                                                 <img src="{{ url('storage/' . 'users/userno.png') }}" alt="" />
                                                 @endif
@@ -94,7 +94,7 @@
                                         <div style="width: 100%;" class="follower">
                                             <div class="img">
                                                 @if($user->avatar)
-                                                <img src="{{ url('storage/' . $user->avatar) }}" alt="" />
+                                                <img src="{{ asset('assets/front/images/'.$user->avatar)}}" alt="" />
                                                 @else
                                                 <img src="{{ url('storage/' . 'users/userno.png') }}" alt="" />
                                                 @endif

@@ -13,7 +13,7 @@
                     @csrf
                     <div class="form-group mb-3">
                         @if(auth()->check() && auth()->user()->avatar)
-                        <img style="width: 200px; height: 200px" src="{{ url('storage/' . auth()->user()->avatar) }}" alt="User Profile Photo">
+                        <img style="width: 200px; height: 200px" src="{{ asset('assets/front/images/'.auth()->user()->avatar)}}" alt="User Profile Photo">
                         @else
                         <img style="width: 200px; height: 200px" src="{{ url('storage/' . 'users/userno.png') }}" alt="Default Profile Photo">
                         @endif
