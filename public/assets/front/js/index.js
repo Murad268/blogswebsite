@@ -3,8 +3,6 @@ window.addEventListener("DOMContentLoaded", () => {
     toggleNavbar();
 });
 
-
-
 function toggleNavbar() {
     const hamburger = document.querySelector(".navbar__hamburger");
     const navbar__center = document.querySelector(".navbar__center");
@@ -16,26 +14,27 @@ function toggleNavbar() {
 
 function exitAccount() {
     let locale = document.documentElement.getAttribute("data-locale");
-
-    document
-        .getElementById("exit-button")
-        .addEventListener("click", function (e) {
-            e.preventDefault();
-            Swal.fire({
-                title: translate()[locale].title,
-                text: translate()[locale].exitMessage,
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: translate()[locale].confirmButtonText,
-                cancelButtonText: translate()[locale].exit,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "/user/logout";
-                }
+    if (document.getElementById("exit-button")) {
+        document
+            .getElementById("exit-button")
+            .addEventListener("click", function (e) {
+                e.preventDefault();
+                Swal.fire({
+                    title: translate()[locale].title,
+                    text: translate()[locale].exitMessage,
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: translate()[locale].confirmButtonText,
+                    cancelButtonText: translate()[locale].exit,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/user/logout";
+                    }
+                });
             });
-        });
+    }
 }
 
 function translate() {
@@ -88,29 +87,32 @@ function translateDelete() {
 }
 
 function deleteComment(e) {
-    document
-        .getElementById("delete-button")
-        .addEventListener("click", function (e) {
-            e.preventDefault();
-            let id = e.target.getAttribute("data-id");
+    if (document.getElementById("delete-button")) {
+        document
+            .getElementById("delete-button")
+            .addEventListener("click", function (e) {
+                e.preventDefault();
+                let id = e.target.getAttribute("data-id");
 
-            const locale = document.documentElement.getAttribute("data-locale");
-            const translations = translateDelete();
+                const locale =
+                    document.documentElement.getAttribute("data-locale");
+                const translations = translateDelete();
 
-            Swal.fire({
-                title: translations[locale].title,
-                text: translations[locale].message,
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: "#3085d6",
-                cancelButtonColor: "#d33",
-                confirmButtonText: translations[locale].confirmButtonText,
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    window.location.href = "/blog/comment_delete/" + id;
-                }
+                Swal.fire({
+                    title: translations[locale].title,
+                    text: translations[locale].message,
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: translations[locale].confirmButtonText,
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        window.location.href = "/blog/comment_delete/" + id;
+                    }
+                });
             });
-        });
+    }
 }
 
 if (document.querySelector("#editor")) {

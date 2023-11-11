@@ -142,6 +142,9 @@
         </div>
 
     </section>
+    <div style="width: max-content; margin: 0 auto">
+        {{$blogs->links()}}
+    </div>
 
 </main>
 @endsection
