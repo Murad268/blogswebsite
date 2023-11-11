@@ -115,7 +115,33 @@
                     </div>
                 </div>
             </div>
+            <div class="posts__wrapper">
+                @foreach($blogs as $blog)
+                <a href="{{ route('front.blog', $blog->slug) }}" class="post">
+                    <div class="post__img">
+                        <img src="{{ asset('assets/front/images/'.$blog->image)}}" alt="" />
+                    </div>
+                    <div class="category">{{$blog->category->title}}</div>
+                    <h2>
+                        {{mb_strlen($blog->title) > 70?substr($blog->title, 0, 70).'...': $blog->title}}
+                    </h2>
+                    <div class="header__body__footer">
+                        <div class="info">
+                            @if( $blog->user->avatar)
+                            <img src="{{asset('assets/front/images/'.$blog->user->avatar)}}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
+                            @else
+                            <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px">
+                            @endif
+                            <div class="name">{{$blog->user->name}}</div>
+                        </div>
+                        <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>
+                    </div>
+                </a>
+                @endforeach
+            </div>
         </div>
+
     </section>
+
 </main>
 @endsection

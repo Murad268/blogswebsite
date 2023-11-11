@@ -3,6 +3,7 @@
 use App\Http\Controllers\front\BlogController;
 use App\Http\Controllers\front\ContactController;
 use App\Http\Controllers\front\CookieController;
+use App\Http\Controllers\front\FollowersController;
 use App\Http\Controllers\front\HomeController;
 use App\Http\Controllers\front\LoginController;
 use App\Http\Controllers\front\PrivacyController;
@@ -46,6 +47,7 @@ Route::group(['middleware' => 'auth', 'prefix' => LaravelLocalization::setLocale
     Route::get('/terms_of_use', [TermsController::class, 'index'])->name('terms_of_use');
     Route::get('/privacy_policy', [PrivacyController::class, 'index'])->name('privacy_policy');
     Route::get('/cookie_policy', [CookieController::class, 'index'])->name('cookie_policy');
+    Route::get('/follows_blogs', [FollowersController::class, 'index'])->name('follows_blogs');
 
 
 
