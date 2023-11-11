@@ -50,10 +50,11 @@
                     <div class="header__body__footer">
                         <div class="info">
                             @if( $blog->user->avatar)
-                            <img src="{{ url('storage/' . $blog->user->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
+                            <img src="{{asset('assets/front/images/'.$blog->user->avatar)}}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px" />
                             @else
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 50px; height: 50px">
                             @endif
+
                             <div class="name">{{$blog->user->name}}</div>
                         </div>
                         <div class="date">{{ $blog->created_at->format('F j, Y') }}</div>
