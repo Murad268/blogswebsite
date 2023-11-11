@@ -14,11 +14,12 @@
                 @foreach($blogs as $blog)
                 <a href="{{ route('front.blog', $blog->slug) }}" class="post">
                     <div class="post__img">
-                        <img src="{{ url('storage/' . $blog->image) }}" alt="" />
+                        <img src="{{ asset('assets/front/images/'.$blog->image)}}" alt="" />
                     </div>
                     <div class="category">{{$blog->category->title}}</div>
                     <h2>
-                        {{$blog->title}}
+                        {{mb_strlen($blog->title) > 70?substr($blog->title, 0, 70).'...': $blog->title}}
+
                     </h2>
                     <div class="header__body__footer">
                         <div class="info">

@@ -10,7 +10,7 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             @if(auth()->check() && auth()->user()->avatar)
-                            <img src="{{ url('storage/' . auth()->user()->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px" />
+                            <img src="{{asset('assets/front/images/'.auth()->user()->avatar)}}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px" />
                             @else
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
                             @endif

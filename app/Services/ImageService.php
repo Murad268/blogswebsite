@@ -3,6 +3,9 @@
 namespace App\Services;
 
 use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class ImageService
 {
@@ -11,33 +14,53 @@ class ImageService
     }
 
 
-    public function storeImage($image,  $field)
+    public function storeImage($image, $path)
     {
-        if ($image) {
-            $imagePath = $image->store($field, 'public');
-            return $imagePath;
+        if ($image && $image->isValid()) {
+            $img = $image;
+            $extension = $img->getClientOriginalExtension();
+            $randomName = Str::random(10);
+            $imagePath = 'assets/front/images/';
+
+            if (!File::exists($imagePath)) {
+                File::makeDirectory($imagePath, $mode = 0777, true, true);
+            }
+
+            $lastName = $randomName . "." . $extension;
+            $lasPath = public_path($imagePath . $lastName);
+
+            chmod($imagePath, 0777);
+
+            Image::make($img)->save($lasPath);
+
+            return $lastName;
         } else {
             return null;
         }
     }
 
 
-
-    public function updateImage($model, $newImage, $field,$key)
+    public function updateImage($model, $newImage, $field, $key)
     {
 
+        $randomName = Str::random(10);
+        $imagePath =  'assets/front/images/'.$model->$key;
+
+        $hasElement = $model->$key;
+
         if ($newImage) {
-            $existingImage = $model->$key;
-
-            if ($existingImage) {
-                Storage::disk('public')->delete($existingImage);
+            if (file_exists($imagePath .  $hasElement) && $hasElement) {
+                unlink($imagePath .  $hasElement);
             }
-
-            $newImagePath = $newImage->store($field, 'public');
-
-            return $newImagePath;
+            $img = $newImage;
+            $extension = $img->getClientOriginalExtension();
+            $lastName = $randomName . "." . $extension;
+            $lasPath = $imagePath . $randomName . "." . $extension;
+            Image::make($img)->save($lasPath);
         } else {
-            return $model->$key;
+            $lastName =   $hasElement;
         }
+
+        return $lastName;
     }
 }

@@ -9,7 +9,7 @@
                     <div class="card mb-4">
                         <div class="card-body text-center">
                             @if($user->avatar)
-                            <img src="{{ url('storage/' . $user->avatar) }}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px" />
+                            <img src="{{asset('assets/front/images/'.$user->avatar)}}"" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px" />
                             @else
                             <img src="{{ url('storage/' . 'users/userno.png') }}" alt=" avatar" class="rounded-circle img-fluid" style="width: 150px; height: 150px">
                             @endif
